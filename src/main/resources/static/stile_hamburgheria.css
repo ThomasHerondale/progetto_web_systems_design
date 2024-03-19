@@ -1,14 +1,14 @@
-.pubblicit-hamburheria,
-.pubblicit-hamburheria * {
+.hamburheria,
+.hamburheria * {
     box-sizing: border-box;
 }
-.pubblicit-hamburheria {
+.hamburheria {
     background: #ffb800;
     height: 1024px;
     position: relative;
     /* overflow: hidden;*/
 }
-.ellipse-1 {
+.ellipse_1 {
     background: #ffffff;
     border-radius: 50%;
     width: 80%;
@@ -20,7 +20,7 @@
 body{
     margin:0%;
 }
-.ellipse-2 {
+.ellipse_2 {
     background: #f6f6f6;
     border-radius: 50%;
     width: 1212px;
@@ -29,7 +29,7 @@ body{
     left: 500px;
     top: 588px;
 }
-.rectangle-6 {
+.rectangle_6 {
     width: 450px;
     height: 700px;
     position: absolute;
@@ -37,7 +37,7 @@ body{
     top: 140px;
     object-fit: cover;
 }
-.rectangle-8 {
+.rectangle_8 {
     width: 428px;
     height: 341px;
     position: absolute;
@@ -45,7 +45,7 @@ body{
     top: 565px;
     object-fit: cover;
 }
-.rectangle-7 {
+.rectangle_7 {
     width: 550px;
     height: 550px;
     position: absolute;
@@ -53,7 +53,7 @@ body{
     top: 503px;
     object-fit: cover;
 }
-.qualunque-sia-il-tuo-gusto-wow-quello-giusto {
+.wow {
     color: #ffffff;
     text-align: center;
     font-family: "-", sans-serif;
@@ -67,19 +67,19 @@ body{
     align-items: center;
     justify-content: center;
 }
-.qualunque-sia-il-tuo-gusto-wow-quello-giusto-span {
+.gusto_span {
     color: #ffffff;
     font-family: "Lusitana-Regular", sans-serif;
     font-size: 90px;
     font-weight: 400;
 }
-.qualunque-sia-il-tuo-gusto-wow-quello-giusto-span2 {
+.wow_span2 {
     color: #ffffff;
     font-family: "Luckiest Guy";
     font-size: 90px;
     font-weight: 400;
 }
-.qualunque-sia-il-tuo-gusto-wow-quello-giusto-span3 {
+.giusto_span3 {
     color: #ffffff;
     font-family: "Lusitana-Regular", sans-serif;
     font-size: 90px;
