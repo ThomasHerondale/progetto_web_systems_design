@@ -1,8 +1,8 @@
-.pubblicit-macchine,
-.pubblicit-macchine * {
+.pubblicitaMacchine,
+.pubblicitaMacchine * {
     box-sizing: border-box;
 }
-.pubblicit-macchine {
+.pubblicitaMacchine {
     background: #ffffff;
     padding: 10px;
     height: 1024px;
@@ -13,7 +13,7 @@ body, html{
     margin:0%;
     height:100%;
 }
-.rectangle-22 {
+.rectangle_22 {
     width: 100%;
     height: 80%;
     position: absolute;
@@ -22,7 +22,7 @@ body, html{
     object-fit: fill;
 
 }
-.rectangle-21 {
+.rectangle_21 {
     width: 650px;
     height: 500px;
     position: absolute;
@@ -34,7 +34,7 @@ body, html{
 
 }
 
-.comincia-a-esplorare {
+.comincia_esplorare {
     color: #000000;
     text-align: center;
     font-family: "Faster One";
@@ -48,7 +48,7 @@ body, html{
     height: auto;
     animation: Animazione2 1.5s ease-out 0s 1 normal none;
 }
-.salpa-verso-la-nuova-era-delle-automobili {
+.salpa_verso {
     color: #000000;
     text-align: center;
     font-family: "Times-Regular", sans-serif;
@@ -61,7 +61,7 @@ body, html{
     height: 10px;
     animation:focus-in-expand 1.5s cubic-bezier(.25,.46,.45,.94) both
 }
-.rectangle-23 {
+.rectangle_23 {
     background: #0085ff;
     width: 275px;
     height: 200px;
@@ -69,7 +69,7 @@ body, html{
     left: 0px;
     top: 0px;
 }
-.italian-round {
+.italian_round {
     color: #ffffff;
     text-align: center;
     font-family: "Times-Regular", sans-serif;
