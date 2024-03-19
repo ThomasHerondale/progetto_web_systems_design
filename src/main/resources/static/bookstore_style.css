@@ -1,0 +1,145 @@
+body {
+    margin: 0%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.container {
+    display: block;
+    max-height: 100%;
+    margin-left: 30%;
+    padding-top: 3%;
+    margin-right: 20%;
+}
+
+.container-img {
+    max-height: 100%;
+}
+
+.img {
+    position: fixed;
+    object-fit: fill;
+    height: 100%;
+}
+
+.title-container{
+    display: grid;
+    align-content: end;
+}
+
+.title {
+    color: #F00;
+    font-family: ".New York";
+    font-size: 80px;
+    font-weight: 674;
+    padding-left: 5%;
+}
+
+.subtitle {
+    font-family: ".New York";
+    font-size: 40px;
+    font-weight: 674;
+    text-align: end;
+    padding-right: 35%;
+}
+
+.line {
+    border: 1px solid black;
+}
+
+.text-container{
+    margin-top: 5%;
+}
+.big-text{
+    color: #1D2D68;
+    font-family: "Sansita Swashed";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0%;
+    padding-right: 50%;
+    -webkit-animation: slide-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s infinite ;
+    animation: slide-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s infinite ;
+}
+
+.small-text{
+    color: #1D2D68;
+    font-family: Times;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.foot-container {
+    margin-top: 10%;
+    display: flex;
+}
+
+.foot-text{
+    display: grid;
+    color: #1D2D68;
+    font-family: Times;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.img-books {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    -webkit-animation: flip-scale-up-ver 3s linear infinite forwards;
+    animation: flip-scale-up-ver 3s linear infinite forwards;
+}
+
+@-webkit-keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+}
+@keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+}
+
+@-webkit-keyframes flip-scale-up-ver {
+    0% {
+        -webkit-transform: scale(1) rotateY(0);
+        transform: scale(1) rotateY(0);
+    }
+    50% {
+        -webkit-transform: scale(2.5) rotateY(90deg);
+        transform: scale(2.5) rotateY(90deg);
+    }
+    100% {
+        -webkit-transform: scale(1) rotateY(180deg);
+        transform: scale(1) rotateY(180deg);
+    }
+}
+@keyframes flip-scale-up-ver {
+    0% {
+        -webkit-transform: scale(1) rotateY(0);
+        transform: scale(1) rotateY(0);
+    }
+    50% {
+        -webkit-transform: scale(2.5) rotateY(90deg);
+        transform: scale(2.5) rotateY(90deg);
+    }
+    100% {
+        -webkit-transform: scale(1) rotateY(180deg);
+        transform: scale(1) rotateY(180deg);
+    }
+}
