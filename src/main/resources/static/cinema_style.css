@@ -1,0 +1,134 @@
+.content,
+.content * {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.content {
+  background: #fe4343;
+  height: 1024px;
+  position: relative;
+  overflow: hidden;
+}
+.ellipse1 {
+  width: 972px;
+  height: 608px;
+  position: absolute;
+  left: -220px;
+  top: -185px;
+  overflow: visible;
+}
+.pop_corn_img {
+  width: 674px;
+  height: 732px;
+  position: absolute;
+  left: -17px;
+  top: 457px;
+  object-fit: cover;
+}
+.film_img {
+  width: 800px;
+  height: 600px;
+  position: absolute;
+  left: 181px;
+  top: -68px;
+  object-fit: cover;
+}
+.ellipse2 {
+  width: 473px;
+  height: 321px;
+  position: absolute;
+  left: 480px;
+  top: 387px;
+  overflow: visible;
+}
+.logo_text1 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "-", sans-serif;
+  font-size: 100px;
+  font-weight: 400;
+  position: absolute;
+  left: 511px;
+  top: 537px;
+  width: 455px;
+  height: 98px;
+  transform-origin: 0 0;
+  transform: rotate(-20.512deg) scale(1, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-text-stroke: 4px #000000;
+}
+.logo_span1 {
+  color: #ffffff;
+  font-family: "Notable", sans-serif;
+  font-size: 100px;
+  font-weight: 400;
+}
+.logo_text2 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Mina", sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  position: absolute;
+  left: 698px;
+  top: 566px;
+  width: 227px;
+  height: 62px;
+  transform-origin: 0 0;
+  transform: rotate(-20.512deg) scale(1, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-text-stroke: 1px #000000;
+}
+.tickets_img {
+  width: 400px;
+  height: 350px;
+  position: absolute;
+  left: 1144px;
+  top: -27.87px;
+  transform-origin: 0 0;
+  transform: rotate(27.079deg) scale(1, 1);
+  object-fit: cover;
+}
+.address {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Times New Roman", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  position: absolute;
+  left: 829px;
+  top: 944px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text {
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  position: absolute;
+  left: 812px;
+  top: 684px;
+  width: 599px;
+  height: 162px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.text1 {
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+}
+.text2 {
+  color: #ebff00;
+  font-family: "Open Sans", sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+}
