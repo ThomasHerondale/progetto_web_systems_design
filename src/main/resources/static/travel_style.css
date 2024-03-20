@@ -25,6 +25,8 @@ body {
   left: 20px;
   top: 54px;
   object-fit: cover;
+  -webkit-animation: slide-out-elliptic-left-fwd 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: slide-out-elliptic-left-fwd 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 .grass_img {
   width: 100%;
@@ -40,7 +42,7 @@ body {
   width: 500px;
   height: 600px;
   position: absolute;
-  left: 809px;
+  left: 1700px;
   top: 212px;
 }
 .main_text {
@@ -52,7 +54,7 @@ body {
   font-style: normal;
   font-size: 55px;
   position: absolute;
-  left: 831px;
+  left: 1731px;
   top: 254px;
   width: 478px;
   height: 258px;
@@ -64,17 +66,80 @@ body {
   font-size: 90px;
   font-weight: 400;
   position: absolute;
-  left: 968px;
+  left: 1820px;
   top: 626px;
   width: 326px;
   height: 100px;
+  -webkit-animation: tracking-in-expand 1.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  animation: tracking-in-expand 1.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 .logo_img {
   border-radius: 50%;
   width: 100px;
   height: 100px;
   position: absolute;
-  left: 860px;
+  left: 1721px;
   top: 626px;
   object-fit: cover;
+  -webkit-animation: roll-in-left 1.8s ease-out both;
+  animation: roll-in-left 1.8s ease-out both;
+}
+@keyframes slide-out-elliptic-left-fwd {
+  0% {
+    -webkit-transform: translateX(0) rotateY(0) scale(1);
+    transform: translateX(0) rotateY(0) scale(1);
+    -webkit-transform-origin: -500px 50%;
+    transform-origin: -500px 50%;
+    opacity: 1;
+  }
+  85% {
+    -webkit-transform: translateX(-1000px) rotateY(-20deg) scale(6);
+    transform: translateX(-1000px) rotateY(-20deg) scale(6);
+    -webkit-transform-origin: 200% 50%;
+    transform-origin: 200% 50%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) rotateY(0) scale(1);
+    transform: translateX(0) rotateY(0) scale(1);
+    -webkit-transform-origin: -500px 50%;
+    transform-origin: -500px 50%;
+    opacity: 1;
+  }
+}
+@keyframes roll-in-left {
+  0% {
+    -webkit-transform: translateX(-800px) rotate(-540deg);
+    transform: translateX(-800px) rotate(-540deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) rotate(0deg);
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
 }
