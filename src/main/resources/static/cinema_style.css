@@ -1,0 +1,176 @@
+body {
+    background-color: #FE4343;
+    margin: 0%;
+    padding: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    margin: 0%;
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+
+.ellipse-cinema {
+    position: fixed;
+    height: 300px;
+    height: 400px;
+    max-width: 100%;
+    max-height: 100%;
+    top: -5%;
+    left: -5%;
+}
+
+.pellicola {
+    position: fixed;
+    width: 600px;
+    /*height: 400px;*/
+    top: -5%;
+    left: 25%;
+}
+
+.popcorn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 500px;
+}
+
+.yellow-ellipse {
+    position: fixed;
+    top: 30%;
+    left: 35%;
+    width: 400px;
+}
+
+.tickets {
+    position: fixed;
+    top: 0%;
+    right: 0;
+    width: 350px;
+    -webkit-animation: rotate-in-center 5s cubic-bezier(0.550, 0.055, 0.675, 0.190) infinite both;
+    animation: rotate-in-center 5s cubic-bezier(0.550, 0.055, 0.675, 0.190) infinite both;
+}
+
+.title-container {
+    position: fixed;
+    text-align: center;
+    top: 35%;
+    left: 35%;
+}
+.title {
+    color: white;
+    font-family: Notable;
+    text-align: center;
+    font-size: 110px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0%;
+    padding: 0%;
+    transform: rotate(-20.512deg);
+    -webkit-text-stroke: 2px #000;
+    -webkit-animation: scale-down-center 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite reverse both;
+    animation: scale-down-center 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite reverse both;
+}
+
+.subtitle{
+    color: #FFF;
+    text-align: end;
+    font-family: Mina;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0%;
+    font-family: Mina;
+    transform: rotate(-20.512deg);
+    flex-direction: column;
+    padding-right: 15%;
+    -webkit-text-stroke: 1px #000;
+}
+
+.info-container {
+    position: fixed;
+    bottom: 0;
+    right: 0%;
+    display: grid;
+    margin-right: 5%;
+}
+
+.frase1 {
+    padding-left: 30%;
+    padding-bottom: 5%;
+    color: #FFF;
+    text-align: right;
+    font-family: "Open Sans";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.visti {
+    color: #EBFF00;
+    font-family: "Open Sans";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.frase2 {
+    color: #FFF;
+    text-align: end;
+    font-family: "Times New Roman";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 5%;
+}
+
+@-webkit-keyframes scale-down-center {
+0% {
+-webkit-transform: scale(1);
+transform: scale(1);
+}
+100% {
+-webkit-transform: scale(0.5);
+transform: scale(0.5);
+}
+}
+@keyframes scale-down-center {
+0% {
+-webkit-transform: scale(1);
+transform: scale(1);
+}
+100% {
+-webkit-transform: scale(0.5);
+transform: scale(0.5);
+}
+}
+
+@-webkit-keyframes rotate-in-center {
+0% {
+-webkit-transform: rotate(-360deg);
+transform: rotate(-360deg);
+opacity: 0;
+}
+100% {
+-webkit-transform: rotate(0);
+transform: rotate(0);
+opacity: 1;
+}
+}
+@keyframes rotate-in-center {
+0% {
+-webkit-transform: rotate(-360deg);
+transform: rotate(-360deg);
+opacity: 0;
+}
+100% {
+-webkit-transform: rotate(0);
+transform: rotate(0);
+opacity: 1;
+}
+}
