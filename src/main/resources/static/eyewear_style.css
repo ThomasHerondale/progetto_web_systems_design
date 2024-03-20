@@ -15,7 +15,7 @@ body{
 .sunglasses_img {
   width: 719px;
   height: 353px;
-  position: absolute;
+  position: fixed;
   left: 990px;
   top: 316px;
   object-fit: cover;
