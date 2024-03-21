@@ -1,4 +1,4 @@
-.riparazione-pc-e {
+.riparazione-pc-title {
     margin: 0;
     height: 108px;
     position: relative;
@@ -12,7 +12,7 @@ body {
     margin: 0;
     line-height: normal;
 }
-.riparazione-pc-e-mac-wrapper {
+.riparazione-pc {
     align-self: stretch;
     display: flex;
     flex-direction: row;
@@ -24,7 +24,7 @@ body {
     color: #fff;
     font-family: "Times New Roman";
 }
-.pubblicit-tecnologica-child {
+.img {
     width: 190.5px;
     height: 116.5px;
     position: relative;
@@ -32,14 +32,14 @@ body {
     z-index: 1;
 }
 .frame-child,
-.frame-item {
+.pc {
     position: absolute;
     top: -288px;
     left: -36px;
     width: 1512px;
     height: 745px;
 }
-.frame-item {
+.pc {
     top: 185px;
     left: 370px;
     width: 700px;
@@ -47,9 +47,9 @@ body {
     object-fit: cover;
     z-index: 1;
 }
-.ellipse-icon,
-.frame-child1,
-.frame-inner {
+.clock,
+.database,
+.gear {
     position: absolute;
     left: 44px;
     border-radius: 50%;
@@ -57,15 +57,15 @@ body {
     height: 50px;
     object-fit: cover;
 }
-.frame-inner {
+.gear {
     top: 407px;
     z-index: 1;
 }
-.ellipse-icon,
-.frame-child1 {
+.clock,
+.database {
     top: 472px;
 }
-.frame-child1 {
+.database {
     top: 541px;
 }
 .vector-parent {
@@ -264,7 +264,7 @@ body {
     object-fit: cover;
     z-index: 1;
 }
-.instruction-label {
+.telephon-number {
     align-self: stretch;
     height: 61px;
     position: relative;
@@ -277,13 +277,13 @@ body {
 }
 .call-button-parent,
 .ellipse-group,
-.instruction-label-wrapper {
+.wrapper {
     flex: 1;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
 }
-.instruction-label-wrapper {
+.wrapper {
     flex-direction: column;
     padding: 9px 0 0;
 }
@@ -308,7 +308,7 @@ body {
     box-sizing: border-box;
     min-width: 295px;
 }
-.ci-trovi-in {
+.map {
     width: 448px;
     position: relative;
     display: flex;
@@ -346,7 +346,7 @@ body {
     font-family: "Times New Roman";
 }
 .frame-parent,
-.pubblicit-tecnologica {
+.conteiner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -361,7 +361,7 @@ body {
     color: #000;
     font-family: Rasa;
 }
-.pubblicit-tecnologica {
+.conteiner {
     width: 100%;
     position: relative;
     background-color: #fff;
@@ -372,7 +372,7 @@ body {
     letter-spacing: normal;
 }
 @media screen and (max-width: 975px) {
-    .riparazione-pc-e {
+    .riparazione-pc-title {
         font-size: 45px;
     }
     .recupero-dati,
@@ -390,14 +390,14 @@ body {
         flex-wrap: wrap;
     }
     .chiama-al-numero,
-    .instruction-label,
+    .telephon-number,
     .maiorana-co {
         font-size: 24px;
     }
     .support-call-inner {
         flex: 1;
     }
-    .ci-trovi-in {
+    .map {
         font-size: 24px;
     }
     .support-call {
@@ -408,7 +408,7 @@ body {
         height: auto;
         min-height: 193;
     }
-    .pubblicit-tecnologica {
+    .conteiner {
         gap: 103px 206px;
     }
 }
@@ -421,7 +421,7 @@ body {
     }
 }
 @media screen and (max-width: 450px) {
-    .riparazione-pc-e {
+    .riparazione-pc-title {
         font-size: 27px;
     }
     .recupero-dati,
@@ -441,12 +441,12 @@ body {
         font-size: 36px;
     }
     .chiama-al-numero,
-    .ci-trovi-in,
-    .instruction-label,
+    .map,
+    .telephon-number,
     .maiorana-co {
         font-size: 18px;
     }
-    .pubblicit-tecnologica {
+    .conteiner {
         gap: 51px 206px;
     }
 }
