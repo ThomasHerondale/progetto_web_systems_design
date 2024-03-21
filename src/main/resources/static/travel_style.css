@@ -8,8 +8,8 @@
   object-fit: cover;
 }
 .x-pubblicit-viaggi-ryanair-child{
-  -webkit-animation: slide-out-elliptic-left-fwd 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
-  animation: slide-out-elliptic-left-fwd 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
+  -webkit-animation: slide-out-elliptic-left-fwd 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
+  animation: slide-out-elliptic-left-fwd 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
 }
 .x-pubblicit-viaggi-ryanair-item {
   top: 626px;
@@ -51,8 +51,8 @@
   border-radius: 50%;
   object-fit: cover;
   min-height: 100px;
-  -webkit-animation: roll-in-left 1.8s ease-out infinite both;
-  animation: roll-in-left 1.8s ease-out infinite both;
+  -webkit-animation: roll-in-left 3s ease-out infinite both;
+  animation: roll-in-left 3s ease-out infinite both;
 }
 .flyhigh {
   margin: 0;
@@ -63,8 +63,8 @@
   display: inline-block;
   min-width: 212px;
   max-width: 100%;
-  -webkit-animation: tracking-in-expand 1.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) infinite both;
-  animation: tracking-in-expand 1.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) infinite both;
+  -webkit-animation: tracking-in-expand 3s cubic-bezier(0.215, 0.610, 0.355, 1.000) infinite both;
+  animation: tracking-in-expand 3s cubic-bezier(0.215, 0.610, 0.355, 1.000) infinite both;
 }
 .flyhigh-symbol,
 .flyhigh-symbol-wrapper,
@@ -132,7 +132,7 @@
   }
   .x-pubblicit-viaggi-ryanair {
     height: auto;
-    min-height: 1024;
+    min-height: 100%;
   }
 }
 body {
