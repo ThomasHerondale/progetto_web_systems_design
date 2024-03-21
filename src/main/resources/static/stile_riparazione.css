@@ -1,0 +1,452 @@
+.riparazione-pc-e {
+    margin: 0;
+    height: 108px;
+    position: relative;
+    font-size: inherit;
+    font-weight: 700;
+    font-family: inherit;
+    display: inline-block;
+    z-index: 1;
+}
+body {
+    margin: 0;
+    line-height: normal;
+}
+.riparazione-pc-e-mac-wrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 21px 0 20px;
+    text-align: left;
+    font-size: 90px;
+    color: #fff;
+    font-family: "Times New Roman";
+}
+.pubblicit-tecnologica-child {
+    width: 190.5px;
+    height: 116.5px;
+    position: relative;
+    display: none;
+    z-index: 1;
+}
+.frame-child,
+.frame-item {
+    position: absolute;
+    top: -288px;
+    left: -36px;
+    width: 1512px;
+    height: 745px;
+}
+.frame-item {
+    top: 185px;
+    left: 370px;
+    width: 700px;
+    height: 500px;
+    object-fit: cover;
+    z-index: 1;
+}
+.ellipse-icon,
+.frame-child1,
+.frame-inner {
+    position: absolute;
+    left: 44px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.frame-inner {
+    top: 407px;
+    z-index: 1;
+}
+.ellipse-icon,
+.frame-child1 {
+    top: 472px;
+}
+.frame-child1 {
+    top: 541px;
+}
+.vector-parent {
+    width: 100%;
+    height: 685px;
+    position: absolute;
+    margin: 0 !important;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+.riparazione-hardware {
+    align-self: stretch;
+    position: relative;
+    z-index: 1;
+}
+.recupero-dati,
+.tempi-brevi {
+    width: 145px;
+    position: relative;
+    display: inline-block;
+}
+.recupero-dati {
+    width: 167px;
+}
+.repair-warning,
+.riparazione-hardware-parent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.riparazione-hardware-parent {
+    flex: 1;
+    flex-direction: column;
+    gap: 29px;
+}
+.repair-warning {
+    width: 406px;
+    flex-direction: row;
+    padding: 0 69px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.non-gettarlo-riparalo {
+    margin: 0;
+    align-self: stretch;
+    height: 157.8px;
+    position: relative;
+    font-size: 50px;
+    font-weight: 400;
+    font-family: "Holtwood One SC";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 2;
+}
+.frame-container,
+.repair-warning-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+.repair-warning-parent {
+    align-self: stretch;
+    gap: 62px;
+}
+.frame-container {
+    width: 493.5px;
+    padding: 24px 0 0;
+    box-sizing: border-box;
+}
+.ellipse-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color: rgba(253, 23, 23, 0.7);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.controllo-gratuito {
+    margin: 0;
+    position: absolute;
+    top: 73px;
+    left: 25px;
+    font-size: inherit;
+    font-weight: 700;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 266px;
+    height: 168px;
+    z-index: 3;
+}
+.ellipse-parent {
+    height: 313px;
+    width: 316px;
+    position: relative;
+    font-size: 60px;
+    color: #fff;
+    font-family: "Times New Roman";
+}
+.frame-group,
+.frame-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 100%;
+}
+.frame-group {
+    flex: 1;
+    justify-content: space-between;
+    gap: 20px;
+}
+.frame-wrapper {
+    width: 1285px;
+    justify-content: flex-start;
+    padding: 0 29px;
+    box-sizing: border-box;
+}
+.call-to-action-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50px;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.call-to-action-item {
+    position: absolute;
+    top: 24px;
+    left: 26px;
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    z-index: 3;
+}
+.call-to-action,
+.maiorana-co {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 458px;
+    height: 135px;
+}
+.maiorana-co {
+    top: 45px;
+    left: 91px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 229px;
+    height: 23px;
+    z-index: 3;
+}
+.call-to-action-parent {
+    position: absolute;
+    top: 91px;
+    left: 1070px;
+    width: 370px;
+    height: 102px;
+}
+.support-call-child {
+    height: 193px;
+    width: 1440px;
+    position: relative;
+    background-color: #52a9e8;
+    display: none;
+    max-width: 100%;
+}
+.chiama-al-numero {
+    width: 231px;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+.call-button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 16px;
+}
+.frame-child2 {
+    height: 80px;
+    width: 80px;
+    position: relative;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
+}
+.instruction-label {
+    align-self: stretch;
+    height: 61px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    z-index: 2;
+}
+.call-button-parent,
+.ellipse-group,
+.instruction-label-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.instruction-label-wrapper {
+    flex-direction: column;
+    padding: 9px 0 0;
+}
+.call-button-parent,
+.ellipse-group {
+    align-self: stretch;
+    flex-direction: row;
+}
+.call-button-parent {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 11px;
+}
+.support-call-inner {
+    height: 136px;
+    width: 295px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 0 11px;
+    box-sizing: border-box;
+    min-width: 295px;
+}
+.ci-trovi-in {
+    width: 448px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    z-index: 1;
+}
+.support-call {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #52a9e8;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 12px 29px 45px;
+    box-sizing: border-box;
+    gap: 168px;
+    max-width: 100%;
+    height: 100%;
+    color: #fff;
+    font-family: Times;
+}
+.frame-footer {
+    align-self: stretch;
+    height: 193px;
+    position: relative;
+    max-width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: #000;
+    font-family: "Times New Roman";
+}
+.frame-parent,
+.pubblicit-tecnologica {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.frame-parent {
+    align-self: stretch;
+    gap: 27.199999999999815px;
+    max-width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: #000;
+    font-family: Rasa;
+}
+.pubblicit-tecnologica {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 77px 0 0;
+    box-sizing: border-box;
+    gap: 206px;
+    letter-spacing: normal;
+}
+@media screen and (max-width: 975px) {
+    .riparazione-pc-e {
+        font-size: 45px;
+    }
+    .recupero-dati,
+    .riparazione-hardware,
+    .tempi-brevi {
+        font-size: 24px;
+    }
+    .non-gettarlo-riparalo {
+        font-size: 40px;
+    }
+    .controllo-gratuito {
+        font-size: 48px;
+    }
+    .frame-group {
+        flex-wrap: wrap;
+    }
+    .chiama-al-numero,
+    .instruction-label,
+    .maiorana-co {
+        font-size: 24px;
+    }
+    .support-call-inner {
+        flex: 1;
+    }
+    .ci-trovi-in {
+        font-size: 24px;
+    }
+    .support-call {
+        flex-wrap: wrap;
+        gap: 168px 84px;
+    }
+    .frame-footer {
+        height: auto;
+        min-height: 193;
+    }
+    .pubblicit-tecnologica {
+        gap: 103px 206px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .repair-warning-parent {
+        gap: 31px 62px;
+    }
+    .support-call {
+        gap: 168px 42px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .riparazione-pc-e {
+        font-size: 27px;
+    }
+    .recupero-dati,
+    .riparazione-hardware,
+    .tempi-brevi {
+        font-size: 18px;
+    }
+    .repair-warning {
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+    .non-gettarlo-riparalo {
+        font-size: 30px;
+    }
+    .controllo-gratuito {
+        font-size: 36px;
+    }
+    .chiama-al-numero,
+    .ci-trovi-in,
+    .instruction-label,
+    .maiorana-co {
+        font-size: 18px;
+    }
+    .pubblicit-tecnologica {
+        gap: 51px 206px;
+    }
+}
