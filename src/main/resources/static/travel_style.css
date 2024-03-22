@@ -1,5 +1,5 @@
-.x-pubblicit-viaggi-ryanair-child,
-.x-pubblicit-viaggi-ryanair-item {
+.pubblicità-child,
+.pubblicità-item {
   position: absolute;
   top: 54px;
   left: 20px;
@@ -7,11 +7,11 @@
   height: 500px;
   object-fit: cover;
 }
-.x-pubblicit-viaggi-ryanair-child{
+.pubblicità-child{
   -webkit-animation: slide-out-elliptic-left-fwd 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
   animation: slide-out-elliptic-left-fwd 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
 }
-.x-pubblicit-viaggi-ryanair-item {
+.pubblicità-item {
   position: absolute;
   top: 0;
   left: 0;
@@ -104,7 +104,7 @@
   gap: 114px;
   z-index: 1;
 }
-.x-pubblicit-viaggi-ryanair {
+.pubblicità {
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -132,7 +132,7 @@
   .flyhigh {
     font-size: 27px;
   }
-  .x-pubblicit-viaggi-ryanair {
+  .pubblicità {
     height: auto;
     min-height: 100%;
   }
