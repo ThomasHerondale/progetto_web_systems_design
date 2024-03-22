@@ -13,8 +13,8 @@
     overflow: hidden;
 }
 .rectangle_10 {
-    width: 720px;
-    height: 100%;
+    width: auto;
+    height: auto;
     position: absolute;
     right:0%;
     top: 0px;
@@ -71,7 +71,7 @@
     left: 270px;
     top: 241px;
     width: 272px;
-    height: 43px;
+    height: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,7 +92,7 @@
     color: #b84140;
     text-align: center;
     font-family: "Lusitana-Bold", sans-serif;
-    font-size: 70px;
+    font-size: 45px;
     font-weight: 700;
     position: absolute;
     left: 22px;
@@ -107,8 +107,8 @@
 .Impegno {
     text-align: left;
     font-family: "-", sans-serif;
-    font-size: 40px;
-    font-weight: 400;
+    font-size: 25px;
+    font-weight: 350;
     position: absolute;
     left: 114px;
     top: 674px;
@@ -122,19 +122,19 @@
 .Impegno_span {
     color: #000000;
     font-family: "Lusitana-Regular", sans-serif;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 400;
 }
 .Impegno_span2 {
     color: #b84140;
     font-family: "Lusitana-Bold", sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
 }
 .Impegno_span3 {
     color: #000000;
     font-family: "Lusitana-Regular", sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 400;
 }
 body{
