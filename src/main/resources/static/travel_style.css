@@ -1,90 +1,148 @@
-.background,
-.background * {
-  box-sizing: border-box;
-}
-.background {
-  background: linear-gradient(
-    240.61deg,
-    rgba(255, 169, 1, 1) 22.34514355659485%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  height: 1024px;
-  position: relative;
-  overflow: hidden;
-}
-body {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  line-height: normal;
-}
-.plane_img {
+.x-pubblicit-viaggi-ryanair-child,
+.x-pubblicit-viaggi-ryanair-item {
+  position: absolute;
+  top: 54px;
+  left: 20px;
   width: 700px;
   height: 500px;
-  position: absolute;
-  left: 20px;
-  top: 54px;
   object-fit: cover;
-  -webkit-animation: slide-out-elliptic-left-fwd 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  animation: slide-out-elliptic-left-fwd 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
-.grass_img {
-  width: 100%;
-  height: 477px;
-  position: absolute;
-  left: 0;
+.x-pubblicit-viaggi-ryanair-child{
+  -webkit-animation: slide-out-elliptic-left-fwd 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
+  animation: slide-out-elliptic-left-fwd 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
+}
+.x-pubblicit-viaggi-ryanair-item {
   top: 626px;
-  object-fit: cover;
+  left: 0;
+  width: 1440px;
+  height: 477px;
 }
-.rectangle1 {
-  background: #237c26;
-  border-radius: 30px 0 30px 30px;
+.frame-child {
   width: 500px;
   height: 600px;
-  position: absolute;
-  left: 1700px;
-  top: 212px;
+  position: relative;
+  border-radius: 30px 0 30px 30px;
+  background-color: #237c26;
+  display: none;
+  max-width: 100%;
 }
-.main_text {
-  color: #ffffff;
-  text-align: left;
-  font-family: "Libre Bodoni", serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 55px;
-  position: absolute;
-  left: 1731px;
-  top: 254px;
-  width: 478px;
+.a-basse-emissione,
+.a-basso-costo,
+.in-europa,
+.voli-di-linea {
+  margin: 0;
+}
+.voli-di-linea-container {
+  align-self: stretch;
   height: 258px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 2;
 }
-.logo_text {
-  color: #ffffff;
-  text-align: left;
-  font-family: "Lily Script One", system-ui;
-  font-size: 90px;
-  font-weight: 400;
-  position: absolute;
-  left: 1820px;
-  top: 626px;
-  width: 326px;
+.flyhigh,
+.flyhigh-symbol-child {
   height: 100px;
-  -webkit-animation: tracking-in-expand 1.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-  animation: tracking-in-expand 1.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  position: relative;
+  z-index: 2;
 }
-.logo_img {
-  border-radius: 50%;
+.flyhigh-symbol-child {
   width: 100px;
-  height: 100px;
-  position: absolute;
-  left: 1721px;
-  top: 626px;
+  border-radius: 50%;
   object-fit: cover;
-  -webkit-animation: roll-in-left 1.8s ease-out both;
-  animation: roll-in-left 1.8s ease-out both;
+  min-height: 100px;
+  -webkit-animation: roll-in-left 3s ease-out infinite both;
+  animation: roll-in-left 3s ease-out infinite both;
 }
+.flyhigh {
+  margin: 0;
+  flex: 1;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  min-width: 212px;
+  max-width: 100%;
+  -webkit-animation: tracking-in-expand 3s cubic-bezier(0.215, 0.610, 0.355, 1.000) infinite both;
+  animation: tracking-in-expand 3s cubic-bezier(0.215, 0.610, 0.355, 1.000) infinite both;
+}
+.flyhigh-symbol,
+.flyhigh-symbol-wrapper,
+.rectangle-parent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.flyhigh-symbol {
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.flyhigh-symbol-wrapper,
+.rectangle-parent {
+  box-sizing: border-box;
+}
+.flyhigh-symbol-wrapper {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 15px 0 29px;
+  font-size: 90px;
+  font-family: "Lily Script One";
+}
+.rectangle-parent {
+  position: absolute;
+  top: 212px;
+  left: 809px;
+  border-radius: 30px 0 30px 30px;
+  background-color: #237c26;
+  width: 500px;
+  flex-direction: column;
+  padding: 42px 0 86px 22px;
+  gap: 114px;
+  z-index: 1;
+}
+.x-pubblicit-viaggi-ryanair {
+  width: 100%;
+  height: 1024px;
+  position: relative;
+  background: linear-gradient(240.61deg, #ffa901 22.35%, #fff);
+  overflow: hidden;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: 55px;
+  color: #fff;
+  font-family: "Libre Bodoni";
+}
+@media screen and (max-width: 750px) {
+  .voli-di-linea-container {
+    font-size: 44px;
+  }
+  .flyhigh {
+    font-size: 45px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .voli-di-linea-container {
+    font-size: 33px;
+  }
+  .flyhigh {
+    font-size: 27px;
+  }
+  .x-pubblicit-viaggi-ryanair {
+    height: auto;
+    min-height: 100%;
+  }
+}
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+
+
+
 @keyframes slide-out-elliptic-left-fwd {
   0% {
     -webkit-transform: translateX(0) rotateY(0) scale(1);
