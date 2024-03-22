@@ -13,13 +13,12 @@
     overflow: hidden;
 }
 .rectangle_10 {
-    width: 720px;
-    height: 100%;
-    position: absolute;
+    width: 500px;
+    position: fixed;
     right:0%;
-    top: 0px;
-    object-fit: cover;
-    animation: myAnim2 2s ease 1s 1 normal forwards;
+    top: 0%;
+    object-fit: fill;
+    animation: myAnim2 2s ease 1s infinite normal forwards;
 }
 .group_5 {
     position: absolute;
@@ -34,9 +33,8 @@
     top: 0px;
 }
 .rectangle_13 {
-    width: 200px;
-    height: 200px;
-    position: absolute;
+    width: 0px;
+    position: fixed;
     left: 301px;
     top: 22px;
     object-fit: cover;
@@ -47,7 +45,7 @@
     font-family: "Lusitana-Regular", sans-serif;
     font-size: 20px;
     font-weight: 400;
-    position: absolute;
+    position: fixed;
     left: 283px;
     top: 291px;
     width: 236.83px;
