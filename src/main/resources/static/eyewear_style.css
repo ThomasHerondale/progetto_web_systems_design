@@ -43,17 +43,17 @@ body {
   top: 50%;
   left: 30%;
   transform: translate(-50%, -50%);
-  width: 30%; /* Regola la larghezza dell'immagine in base alle tue esigenze */
-  height: auto; /* Per mantenere l'aspetto proporzionato */
+  width: 30%;
+  height: auto;
   -webkit-animation: scale-in-ver-top 1.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite  both;
   animation: scale-in-ver-top 1.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite  both;
 }
 .frame-item {
   position: absolute;
   top: 5%;
-  left: 65%; /* 100% - larghezza dell'immagine */
-  width: 20%; /* Regola la larghezza dell'immagine in base alle tue esigenze */
-  height: auto; /* Per mantenere l'aspetto proporzionato */
+  left: 65%;
+  width: 20%;
+  height: auto;
 }
 .rectangle-parent {
   height: 669px;
