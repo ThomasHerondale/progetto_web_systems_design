@@ -102,7 +102,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: myAnim3 2s ease 0s infinite normal forwards;
+    animation: myAnim3 2s ease 0s 1 normal forwards;
 }
 .Impegno {
     text-align: left;
