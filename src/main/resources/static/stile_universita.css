@@ -8,16 +8,17 @@
             rgba(255, 255, 255, 1) 0%,
             rgba(202, 137, 11, 1) 100%
     );
-    height: 1024px;
+    height: 100vh;
     position: relative;
     overflow: hidden;
 }
 .rectangle_10 {
-    width: 500px;
-    position: fixed;
+    width: 720px;
+    height: 100%;
+    position: absolute;
     right:0%;
-    top: 0%;
-    object-fit: fill;
+    top: 0px;
+    object-fit: cover;
     animation: myAnim2 2s ease 1s infinite normal forwards;
 }
 .group_5 {
@@ -33,8 +34,9 @@
     top: 0px;
 }
 .rectangle_13 {
-    width: 0px;
-    position: fixed;
+    width: 200px;
+    height: 200px;
+    position: absolute;
     left: 301px;
     top: 22px;
     object-fit: cover;
@@ -45,7 +47,7 @@
     font-family: "Lusitana-Regular", sans-serif;
     font-size: 20px;
     font-weight: 400;
-    position: fixed;
+    position: absolute;
     left: 283px;
     top: 291px;
     width: 236.83px;
@@ -115,7 +117,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    animation: myAnim4 2s ease 0s 1 normal forwards;
+    animation: myAnim4 2s ease 0s infinite normal forwards;
 }
 .Impegno_span {
     color: #000000;
@@ -138,6 +140,7 @@
 body{
     margin:0%;
     height:100%;
+    padding:0;
 }
 
 @keyframes myAnim {
