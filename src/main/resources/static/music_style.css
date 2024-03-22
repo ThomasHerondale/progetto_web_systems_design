@@ -18,11 +18,11 @@ body {
 }
 .top-container {
     position: relative;
-    margin-left: 35%;
+    margin-left: 60%;
     margin-top: 5% ;
     text-align: end;
     background-color: rgba(20, 23, 19, 0.8);
-    border-radius: 24px 24px 0 24px;
+    border-radius: 24px 24px 24px 24px;
     padding: 1%;
 }
 .text-one{
@@ -51,7 +51,7 @@ body {
 
 .container-element{
     background-color: rgba(20, 23, 19, 0.8);
-    border-radius: 24px 24px 0 24px;
+    border-radius: 24px 24px 24px 24px;
     margin: 0% 5% 0% 5%;
     padding: 1%;
 }
@@ -84,6 +84,15 @@ body {
     line-height: normal;
     margin: 1%;
 }
+.text-three {
+    color: #178804;
+    font-family: MuseoModerno;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 1%;
+}
 
 .special-two {
     color: #178804;
@@ -100,14 +109,25 @@ body {
 .container-element-two {
     background-color: rgba(20, 23, 19, 0.8);
     border-radius: 24px 24px 0 24px;
-    margin: 1% 35% 0% 13%;
+    margin: 5% 35% 0% 13%;
     padding: 1%;
 }
 .costo {
     color: #FFF;
     font-family: MuseoModerno;
-    font-size: 20px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.download-text {
+    color: #FFF;
+    font-family: MuseoModerno;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: right;
+    margin-left: 60%;
 }
