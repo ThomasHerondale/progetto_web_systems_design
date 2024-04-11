@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Meteo e Ora</title>
+	<link rel="stylesheet" href="styles/styles.css">
+
+	<script>
+        function updateDateTime() {
+            var date = new Date();
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById("date").innerText = date.toLocaleDateString('it-IT', options);
+
+            var currentTime = date.toLocaleTimeString('it-IT');
+            document.getElementById("time").innerText = currentTime;
+        }
+
+        function updateWeather() {
+            // Qui dovresti implementare la logica per ottenere le informazioni meteo da un servizio esterno o da un file XML
+            // Per ora, assumiamo dei valori statici
+            var weather = "Soleggiato";
+            var temperature = "25°C";
+            document.getElementById("weather").innerText = weather;
+            document.getElementById("temperature").innerText = temperature;
+
+            // Aggiorna le icone meteo
+            var leftIcon = document.getElementById("left-icon");
+            var rightIcon = document.getElementById("right-icon");
+
+            // Cambia le icone in base alle condizioni meteorologiche
+            // Per ora, assumiamo icone per "Soleggiato" e "Pioggia"
+            if (weather === "Soleggiato") {
+                leftIcon.src = "sun_icon.png";
+                rightIcon.src = "sun_icon.png";
+            } else if (weather === "Pioggia") {
+                leftIcon.src = "rain_icon.png";
+                rightIcon.src = "rain_icon.png";
+            }
+        }
+
+        // Aggiornamento iniziale
+        updateDateTime();
+        updateWeather();
+
+        // Aggiorna l'orario ogni secondo
+        setInterval(updateDateTime, 1000);
+
+        // Aggiorna il meteo ogni 10 minuti (600,000 millisecondi)
+        setInterval(updateWeather, 600000);
+
+        // Funzione per leggere il file XML
+        function readXMLFile(filename) {
+            // Qui dovresti implementare la logica per leggere il file XML e aggiornare la pagina HTML
+        }
+
+        // Funzione per leggere la durata dal file XML e aggiornare la pagina HTML dopo la durata specificata
+        function updateContentAfterDuration(duration) {
+            // Imposta un timeout per aggiornare il contenuto dopo la durata specificata
+            setTimeout(function() {
+                // Chiama la funzione per leggere e aggiornare il contenuto dal file XML
+                readXMLFile("content.xml");
+            }, duration * 1000); // Converti la durata da secondi a millisecondi
+        }
+
+        // Esempio di utilizzo
+        updateContentAfterDuration(60); // Aggiorna il contenuto dopo 60 secondi
+	</script>
+</head>
+<body>
+
+<div id="content">
+	<!-- Qui verrà inserito il contenuto dinamico -->
+</div>
+
+<div id="bottom-bar">
+	<img src="left_icon.png" alt="Icona meteo sinistra" id="left-icon">
+	<span id="date"></span> |
+	<span id="weather"></span> |
+	<span id="temperature"></span> |
+	<span id="time"></span>
+	<img src="right_icon.png" alt="Icona meteo destra" id="right-icon">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

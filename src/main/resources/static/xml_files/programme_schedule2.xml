@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<!DOCTYPE note SYSTEM "programme_schedule.dtd">-->
+
+<wall xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="programme_schedule.xsd">
+
+    <advertisement id="ad709">
+        <title>Pubblicità UniPanormus</title>
+        <duration>60</duration> <!--durata proiezione espressa in secondi-->
+        <description>Pubblicità università telematica UniPanormus</description>
+        <url>../universita_telematica.html</url>
+    </advertisement>
+
+    <advertisement id="ad591">
+        <title>Pubblicità Hamburgheria</title>
+        <duration>75</duration> <!--durata proiezione espressa in secondi-->
+        <description>Pubblicità sull'offerta speciale dei panini</description>
+        <url>../hambugheria.html</url>
+    </advertisement>
+
+    <advertisement id="ad201">
+        <title>Pubblicità Cinema</title>
+        <duration>60</duration> <!--durata proiezione espressa in secondi-->
+        <description>Pubblicità della sala cinema</description>
+        <url>../cinema.html</url>
+    </advertisement>
+
+    <advertisement id="578">
+        <title>Pubblicità Maiorana and co.</title>
+        <duration>30</duration> <!--durata proiezione espressa in secondi-->
+        <description>Pubblicità del servizio di riparazioni di dispositivi infortmatici</description>
+        <url>../riparazione.html</url>
+    </advertisement>
+
+    <advertisement id="ad369">
+        <title>Pubblicità Ottico Lombardo</title>
+        <duration>45</duration>
+        <description>Pubblicità offerta occhiali da sole </description>
+        <url>../eyewear.html</url>
+    </advertisement>
+
+    <advertisement id="ad841">
+        <title>Pubblicità Gioielleria Cipolla</title>
+        <duration>35</duration>
+        <description>Pubblicità oreficeria della Gioielleria Cipolla</description>
+        <url>../gioielli.html</url>
+    </advertisement>
+
+    <advertisement id="ad420">
+        <title>Pubblicità Vibezz</title>
+        <duration>50</duration> <!--durata proiezione espressa in secondi-->
+        <description>Pubblicità del nuovo servizio di streaming di musica</description>
+        <url>../music.html</url>
+    </advertisement>
+
+    <advertisement id="691">
+        <title>Pubblicità Flyhigh</title>
+        <duration>60</duration> <!--durata proiezione espressa in secondi-->
+        <description>Pubblicità del servizio di volo di Flyhigh</description>
+        <url>../travel.html</url>
+    </advertisement>
+
+    <advertisement id="ad154">
+        <title>Pubblicità automobili</title>
+        <duration>80</duration> <!--durata proiezione espressa in secondi-->
+        <description>Pubblicizzazione della nuova auto </description>
+        <url>../macchine.html</url>
+    </advertisement>
+
+    <advertisement id="ad903">
+        <title>Pubblicità Libreria</title>
+        <duration>90</duration> <!--durata proiezione espressa in secondi-->
+        <description>Pubblicità dell'apertura del bookstore Libraio</description>
+        <url>../libraio.html</url>
+    </advertisement>
+</wall>

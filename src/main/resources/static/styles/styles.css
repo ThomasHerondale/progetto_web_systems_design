@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4a90e2; /* Colore celeste scuro */
+    color: #fff;
+    padding: 2%;
+    text-align: center;
+    display: flex;
+    font-size: 180%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#bottom-bar img {
+    width: 30px;
+    height: 30px;
+}

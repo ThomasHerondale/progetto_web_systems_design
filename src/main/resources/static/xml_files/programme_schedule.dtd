@@ -1,0 +1,8 @@
+<!ELEMENT wall (advertisement+)>
+<!ELEMENT advertisement (title, duration, description, url, note?)>
+<!ATTLIST  advertisement id ID #REQUIRED>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT note (#PCDATA)>
