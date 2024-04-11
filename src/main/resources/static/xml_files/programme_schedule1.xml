@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE note SYSTEM "programme_schedule.dtd">-->
+<wall xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="programme_schedule.xsd">
+    <advertisement id="ad201">
+        <title>Pubblicità Cinema</title>
+        <duration>60</duration> <!--durata proiezione espressa in secondi-->
+        <description>Pubblicità della sala cinema</description>
+        <url>../cinema.html</url>
+    </advertisement>
+
+    <advertisement id="ad369">
+        <title>Pubblicità Ottico Lombardo</title>
+        <duration>45</duration>
+        <description>Pubblicità offerta occhiali da sole </description>
+        <url>../eyewear.html</url>
+    </advertisement>
+
+    <advertisement id="ad841">
+        <title>Pubblicità Gioielleria Cipolla</title>
+        <duration>35</duration>
+        <description>Pubblicità oreficeria della Gioielleria Cipolla</description>
+        <url>../gioielli.html</url>
+    </advertisement>
+</wall>

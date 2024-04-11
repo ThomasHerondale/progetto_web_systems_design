@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE note SYSTEM "programme_schedule.dtd">-->
+<wall xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="programme_schedule.xsd">
+    <advertisement id="">
+        <title></title>
+        <duration></duration> <!--durata proiezione espressa in secondi-->
+        <description></description>
+        <url></url>
+    </advertisement>
+    <advertisement id="">
+        <title></title>
+        <duration></duration> <!--durata proiezione espressa in secondi-->
+        <description></description>
+        <url></url>
+    </advertisement>
+    <advertisement id="">
+        <title></title>
+        <duration></duration> <!--durata proiezione espressa in secondi-->
+        <description></description>
+        <url></url>
+    </advertisement>
+</wall>
