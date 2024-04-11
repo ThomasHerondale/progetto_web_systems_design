@@ -1,22 +1,3 @@
-function getWeatherData(hour) {
-    fetch("https://api.open-meteo.com/v1/forecast?" +
-        "latitude=38.132&" +
-        "longitude=13.3356&" +
-        "hourly=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&" +
-        "forecast_days=1",
-        )
-        .then(async r => test(await r.text()))
-        .catch(reason => console.error(reason))
-}
-
-function test(txt) {
-    let json = JSON.parse(txt);
-    console.log(json);
-    console.log(
-        parseWeatherData(json, 17)
-    );
-}
-
 class WeatherData {
     constructor(
         weatherCode,
