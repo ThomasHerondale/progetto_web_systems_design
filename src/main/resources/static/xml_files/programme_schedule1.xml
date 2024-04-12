@@ -28,7 +28,7 @@
         <title>Pubblicità Hamburgheria</title>
         <duration>75</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità sull'offerta speciale dei panini</description>
-        <url>pages/hambugheria.html</url>
+        <url>pages/hamburgheria.html</url>
     </advertisement>
 
     <advertisement id="ad903">
