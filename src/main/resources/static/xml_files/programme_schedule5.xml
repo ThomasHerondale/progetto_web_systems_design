@@ -7,42 +7,42 @@
         <title>Pubblicità Cinema</title>
         <duration>60</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità della sala cinema</description>
-        <url>../cinema.html</url>
+        <url>pages/cinema.html</url>
     </advertisement>
 
     <advertisement id="ad709">
         <title>Pubblicità UniPanormus</title>
         <duration>60</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità università telematica UniPanormus</description>
-        <url>../universita_telematica.html</url>
+        <url>pages/universita_telematica.html</url>
     </advertisement>
 
     <advertisement id="ad154">
         <title>Pubblicità automobili</title>
         <duration>80</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicizzazione della nuova auto </description>
-        <url>../macchine.html</url>
+        <url>pages/macchine.html</url>
     </advertisement>
 
     <advertisement id="ad903">
         <title>Pubblicità Libreria</title>
         <duration>90</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità dell'apertura del bookstore Libraio</description>
-        <url>../libraio.html</url>
+        <url>pages/libraio.html</url>
     </advertisement>
 
     <advertisement id="691">
         <title>Pubblicità Flyhigh</title>
         <duration>60</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità del servizio di volo di Flyhigh</description>
-        <url>../travel.html</url>
+        <url>pages/travel.html</url>
     </advertisement>
 
     <advertisement id="ad841">
         <title>Pubblicità Gioielleria Cipolla</title>
         <duration>35</duration>
         <description>Pubblicità oreficeria della Gioielleria Cipolla</description>
-        <url>../gioielli.html</url>
+        <url>pages/gioielli.html</url>
     </advertisement>
 
     <advertisement id="ad591">
