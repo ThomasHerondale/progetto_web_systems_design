@@ -49,27 +49,27 @@
         <title>Pubblicità Hamburgheria</title>
         <duration>75</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità sull'offerta speciale dei panini</description>
-        <url>../hambugheria.html</url>
+        <url>pages/hambugheria.html</url>
     </advertisement>
 
     <advertisement id="ad420">
         <title>Pubblicità Vibezz</title>
         <duration>50</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità del nuovo servizio di streaming di musica</description>
-        <url>../music.html</url>
+        <url>pages/music.html</url>
     </advertisement>
 
     <advertisement id="578">
         <title>Pubblicità Maiorana and co.</title>
         <duration>30</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità del servizio di riparazioni di dispositivi infortmatici</description>
-        <url>../riparazione.html</url>
+        <url>pages/riparazione.html</url>
     </advertisement>
 
     <advertisement id="ad369">
         <title>Pubblicità Ottico Lombardo</title>
         <duration>45</duration>
         <description>Pubblicità offerta occhiali da sole </description>
-        <url>../eyewear.html</url>
+        <url>pages/eyewear.html</url>
     </advertisement>
 </wall>
