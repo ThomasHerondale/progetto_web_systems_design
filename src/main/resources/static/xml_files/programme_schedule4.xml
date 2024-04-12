@@ -49,27 +49,27 @@
         <title>Pubblicità Flyhigh</title>
         <duration>60</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità del servizio di volo di Flyhigh</description>
-        <url>../travel.html</url>
+        <url>pages/travel.html</url>
     </advertisement>
 
     <advertisement id="ad709">
         <title>Pubblicità UniPanormus</title>
         <duration>60</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità università telematica UniPanormus</description>
-        <url>../universita_telematica.html</url>
+        <url>pages/universita_telematica.html</url>
     </advertisement>
 
     <advertisement id="ad369">
         <title>Pubblicità Ottico Lombardo</title>
         <duration>45</duration>
         <description>Pubblicità offerta occhiali da sole </description>
-        <url>../eyewear.html</url>
+        <url>pages/eyewear.html</url>
     </advertisement>
 
     <advertisement id="ad201">
         <title>Pubblicità Cinema</title>
         <duration>60</duration> <!--durata proiezione espressa in secondi-->
         <description>Pubblicità della sala cinema</description>
-        <url>../cinema.html</url>
+        <url>pages/cinema.html</url>
     </advertisement>
 </wall>
