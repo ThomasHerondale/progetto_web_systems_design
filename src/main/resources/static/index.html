@@ -17,6 +17,7 @@
 			loadWeatherSetup()
 			loadDateTimeSetup()
 			loadAdvertisementSetup()
+			sendSignal()
 		}
 	</script>
 	<script>
@@ -70,13 +71,13 @@
 
 		function loadAdvertisementSetup() {
 			schedule_id = selectSchedule()
-			readSchedule(schedule_id)
+			readSchedule(`xml_files/programme_schedule${schedule_id}.xml`)
 		}
 
 		function selectSchedule() {
 			// let idx = Math.floor(Math.random() * 5 + 1)
-			 let idx = 2
-			 return `xml_files/programme_schedule${idx}.xml`
+			idx = 2
+			return idx
 		}
 
 		function readSchedule(fname) {
@@ -84,6 +85,7 @@
 			req.open('GET', fname, true)
 			req.onload = function () {
 				schedule = parseSchedule(this.responseXML)
+				sendSignal()
 				advertisementSetup()
 			}
 			req.send()
@@ -101,21 +103,23 @@
 	</script>
 	<script>
 		function sendSignal() {
+			console.log("Sending request...")
+			console.log(schedule[idx].id)
 			let date = new Date()
-			$.post('127.0.0.1:8080',
+			$.post('http://127.0.0.1:8080/receiveData',
 					{
 						facility_id: 9,
 						schedule_id: schedule_id,
 						adv_id: schedule[idx].id,
 						duration: schedule[idx].duration,
-						timestamp: date.toDateString()
+						timestamp: date.toISOString()
 					},
 					function (data, status) {
 						console.log(`Request endend with status ${status}`)
 					}
 			)
 		}
-		setTimeout("sendSignal()", 5000)
+		setTimeout("sendSignal()", 50000)
 	</script>
 </head>
 <body onload="setup()">

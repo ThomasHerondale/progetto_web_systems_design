@@ -6,6 +6,7 @@ class Advertisement {
         description,
         url
     ) {
+        this.id = id;
         this.title = title;
         this.duration = duration;
         this.description = description;
