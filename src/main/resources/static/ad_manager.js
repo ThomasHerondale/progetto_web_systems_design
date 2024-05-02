@@ -1,5 +1,6 @@
 class Advertisement {
     constructor(
+        id,
         title,
         duration,
         description,
@@ -17,11 +18,13 @@ function parseSchedule(xml) {
     let ads = []
     for (let i = 0; i < wall.length; i++) {
         let ad = wall[i]
+        let id = ad.getAttribute('id')
         let title = ad.getElementsByTagName('title')[0].firstChild.nodeValue
         let duration = ad.getElementsByTagName('duration')[0].firstChild.nodeValue
         let description = ad.getElementsByTagName('description')[0].firstChild.nodeValue
         let url = ad.getElementsByTagName('url')[0].firstChild.nodeValue
         ads[i] = new Advertisement(
+            id,
             title,
             duration,
             description,
