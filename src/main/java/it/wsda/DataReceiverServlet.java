@@ -17,7 +17,7 @@ public class DataReceiverServlet extends HttpServlet {
         int durata = Integer.parseInt(request.getParameter("duration"));
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nomeDatabase", "user", "password")) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys?serverTimezone=CET", "root", "root")) {
             String sql = "INSERT INTO signals (facility_id, schedule_id, adv_id, duration, timestamp) VALUES (?, ?, ?, ?, ?)";
             try (PreparedStatement statement = conn.prepareStatement(sql)) {
                 statement.setInt(1, idImpianto);
