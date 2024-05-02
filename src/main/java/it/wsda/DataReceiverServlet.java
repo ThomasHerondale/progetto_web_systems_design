@@ -13,7 +13,7 @@ public class DataReceiverServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idImpianto = Integer.parseInt(request.getParameter("facility_id"));
         int idPalinsesto = Integer.parseInt(request.getParameter("schedule_id"));
-        int idCartellone = Integer.parseInt(request.getParameter("adv_id"));
+        String idCartellone = request.getParameter("adv_id");
         int durata = Integer.parseInt(request.getParameter("duration"));
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
@@ -22,7 +22,7 @@ public class DataReceiverServlet extends HttpServlet {
             try (PreparedStatement statement = conn.prepareStatement(sql)) {
                 statement.setInt(1, idImpianto);
                 statement.setInt(2, idPalinsesto);
-                statement.setInt(3, idCartellone);
+                statement.setString(3, idCartellone);
                 statement.setInt(4, durata);
                 statement.setTimestamp(5, timestamp);
                 statement.executeUpdate();
