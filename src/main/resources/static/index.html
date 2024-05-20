@@ -6,6 +6,9 @@
 	<title>Meteo e Ora</title>
 	<link rel="stylesheet" href="styles/styles.css">
 
+	<script type="text/javascript"
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 	<script src="weather_api.js"></script>
 	<script src="ad_manager.js"></script>
 
@@ -14,6 +17,7 @@
 			loadWeatherSetup()
 			loadDateTimeSetup()
 			loadAdvertisementSetup()
+			sendSignal()
 		}
 	</script>
 	<script>
@@ -63,15 +67,17 @@
 	<script>
 		let idx = 0
 		let schedule = null;
+		let schedule_id = null
 
 		function loadAdvertisementSetup() {
-			let idx = selectSchedule()
-			readSchedule(idx)
+			schedule_id = selectSchedule()
+			readSchedule(`xml_files/programme_schedule${schedule_id}.xml`)
 		}
 
 		function selectSchedule() {
-			let idx = Math.floor(Math.random() * 5 + 1)
-			return `xml_files/programme_schedule${idx}.xml`
+			// let idx = Math.floor(Math.random() * 5 + 1)
+			idx = 2
+			return idx
 		}
 
 		function readSchedule(fname) {
@@ -79,6 +85,7 @@
 			req.open('GET', fname, true)
 			req.onload = function () {
 				schedule = parseSchedule(this.responseXML)
+				sendSignal()
 				advertisementSetup()
 			}
 			req.send()
@@ -93,6 +100,26 @@
 				idx++
 			setTimeout("advertisementSetup()", ad.duration * 1000)
 		}
+	</script>
+	<script>
+		function sendSignal() {
+			console.log("Sending request...")
+			console.log(schedule[idx].id)
+			let date = new Date()
+			$.post('http://127.0.0.1:8080/receiveData',
+					{
+						facility_id: 9,
+						schedule_id: schedule_id,
+						adv_id: schedule[idx].id,
+						duration: schedule[idx].duration,
+						timestamp: date.toISOString()
+					},
+					function (data, status) {
+						console.log(`Request endend with status ${status}`)
+					}
+			)
+		}
+		setTimeout("sendSignal()", 50000)
 	</script>
 </head>
 <body onload="setup()">
