@@ -30,7 +30,11 @@ public class DataReportServlet extends HttpServlet {
 
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/NomeDatabase", "user", "password");
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT facility_id, MAX(timestamp) as lastSignal FROM signals GROUP BY facility_id")) {
+             ResultSet rs = stmt.executeQuery(
+                     "SELECT f.id as facility_id, f.latitude, f.longitude, MAX(s.timestamp) as lastSignal " +
+                             "FROM facilities f " +
+                             "INNER JOIN signals s ON f.id = s.facility_id " +
+                             "GROUP BY f.id, f.latitude, f.longitude")) {
 
             // Calcola il timestamp di due minuti fa
             Date twoMinutesAgo = new Date(System.currentTimeMillis() - 2 * 60 * 1000);
@@ -39,27 +43,39 @@ public class DataReportServlet extends HttpServlet {
             while (rs.next()) {
                 // Ottiene i dati dal risultato della query
                 String facilityId = rs.getString("facility_id");
+                double latitude = rs.getDouble("latitude");
+                double longitude = rs.getDouble("longitude");
                 Timestamp lastSignal = rs.getTimestamp("lastSignal");
 
+                // Crea un oggetto JSON per rappresentare ogni facility
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("facility_id", facilityId);
+                jsonObject.put("latitude", latitude);
+                jsonObject.put("longitude", longitude);
                 jsonObject.put("lastSignal", lastSignal != null ? lastSignal.getTime() : JSONObject.NULL);
                 jsonObject.put("status", (lastSignal != null && lastSignal.getTime() > twoMinutesAgo.getTime()) ? "Attivo" : "Inattivo");
 
+                // Aggiunge l'oggetto JSON all'array JSON
                 jsonArray.put(jsonObject);
             }
 
+            // Scrive l'array JSON nella risposta
             PrintWriter out = response.getWriter();
             out.print(jsonArray.toString());
             out.flush();
         } catch (SQLException e) {
+            // Stampa lo stack trace dell'eccezione
             e.printStackTrace();
+            // Imposta lo status della risposta come errore interno del server
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            // Crea un oggetto JSON per rappresentare l'errore
             JSONObject errorResponse = new JSONObject();
             errorResponse.put("error", "Internal Server Error");
+            // Scrive l'oggetto JSON dell'errore nella risposta
             PrintWriter out = response.getWriter();
             out.print(errorResponse.toString());
             out.flush();
         }
     }
 }
+
