@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="it">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Monitoraggio</title>
+
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+		      crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+		        crossorigin="">
+		</script>
+		<script type="text/javascript"
+				src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+		</script>
+
+
+		<style>
+			h1 {
+				text-align: center;
+				font-size: 60px;
+				font-family: Georgia,serif;
+				color: white;
+			}
+			#map {
+				position: fixed;
+				height: 75%;
+				width: 99%;
+			}
+
+			body {
+				background-color: #52a9e8;
+			}
+		</style>
+	</head>
+	<body onload="loadFacilityStatus()">
+		<h1>Monitoraggio impianti</h1>
+		<div id="map"></div>
+	</body>
+	<script>
+		const map = L.map('map');
+		map.setView([38.11, 13.36], 14);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        /**
+         * Creazione di una classe di icone
+		const greenIcon = L.icon(
+            {
+	            iconUrl: 'icons/green.png',
+	            iconSize: [50, 50]
+            }
+        )
+
+		const redIcon = L.icon(
+            {
+	            iconUrl: 'icons/red.png',
+	            iconSize: [50, 50]
+            }
+		)*/
+
+
+		class impianto {
+
+            constructor(latitudine, longitudine, ultimo_segnale, status) {
+                this.latitudine = latitudine
+	            this.longitudine = longitudine
+	            this.ultimo_segnale = ultimo_segnale
+				this.status = status
+            }
+		}
+		/**
+        const impianti = [
+            new impianto(38.11436107336457, 13.374485481882994, 10,true),
+	        new impianto(38.11422601344605, 13.364700784279123, 10,true),
+            new impianto(38.109464991746805, 13.362469186579995, false),
+            new impianto(38.11348317942977, 13.35637520824776, 87,true),
+            new impianto(38.12216320330426, 13.360901448489713, false),
+            new impianto(38.1407594040745, 13.367476277792761, false),
+        ]
+*/
+		function aggiungiMarker(impianti) {
+            console.log(impianti)
+            impianti.forEach(
+                impianto => {
+                    if (impianto.status) {
+                        impiantoAttivo(impianto.latitudine, impianto.longitudine, impianto.ultimo_segnale)
+                    } else {
+						impiantoInattivo(impianto.latitudine, impianto.longitudine, impianto.ultimo_segnale)
+                    }
+                }
+            )
+		}
+
+
+        function impiantoAttivo(latitudine, longitudine, ultimo_seganele) {
+			let marker = L.marker([latitudine, longitudine],
+				{icon: createIcon('icons/green.png', map.getZoom())}).addTo(map)
+	        console.log(ultimo_seganele )
+	       if (ultimo_seganele) {
+               marker.bindPopup(String(ultimo_seganele)).openPopup()
+	       }
+        }
+
+        function impiantoInattivo(latitudine, longitudine, ultimo_segnale) {
+            let marker = L.marker([latitudine, longitudine],
+	            {icon: createIcon('icons/red.png', map.getZoom())}).addTo(map)
+	        console.log(ultimo_segnale)
+	        if (ultimo_segnale) {
+                marker.bindPopup(String(ultimo_seganele)).openPopup()
+	        }
+        }
+
+
+        function createIcon(iconUrl, zoom) {
+            // Definizione delle dimensioni minime e massime delle icone
+            const minSize = 10;
+            const maxSize = 50;
+
+            // Calcolo della dimensione in base al livello di zoom con una transizione più fluida
+            const scale = zoom / 19;
+            const size = Math.max(minSize, Math.min(maxSize, maxSize * scale));
+
+            return L.icon({
+                iconUrl: iconUrl,
+                iconSize: [size, size], // Dimensioni dell'icona
+                iconAnchor: [size / 2, size], // Punto di ancoraggio dell'icona
+                popupAnchor: [0, -size / 2] // Punto di ancoraggio del popup
+            });
+        }
+
+         //aggiungiMarker(impianti)
+        // prova
+		//L.marker([38.12708934982683, 13.310327044206376], {icon: greenIcon}).addTo(map);
+
+		/**
+		 * Inserire la funzione che esegue le query */
+		function loadFacilityStatus() {
+			$.get({
+				url: 'http://127.0.0.1:8080/reportData',
+				success: function (data, status) {
+					let facilities = []
+					for (let i = 0; i < data.length; i++) {
+						let datum = data[i]
+						let facility = new impianto(
+								datum["latitude"],
+								datum["longitude"],
+								datum["lastSignal"],
+								datum["status"] === 'Attivo'
+						)
+						facilities[i] = facility
+					}
+					aggiungiMarker(facilities)
+					setTimeout('loadFacilityStatus()', 10000)
+				},
+			})
+		}
+	</script>
+</html>
