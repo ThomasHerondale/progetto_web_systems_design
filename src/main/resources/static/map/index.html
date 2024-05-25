@@ -73,35 +73,46 @@
 				this.status = status
             }
 		}
-
+		/**
         const impianti = [
-            new impianto(38.11436107336457, 13.374485481882994, true),
-	        new impianto(38.11422601344605, 13.364700784279123, true),
+            new impianto(38.11436107336457, 13.374485481882994, 10,true),
+	        new impianto(38.11422601344605, 13.364700784279123, 10,true),
             new impianto(38.109464991746805, 13.362469186579995, false),
-            new impianto(38.11348317942977, 13.35637520824776, true),
+            new impianto(38.11348317942977, 13.35637520824776, 87,true),
             new impianto(38.12216320330426, 13.360901448489713, false),
             new impianto(38.1407594040745, 13.367476277792761, false),
         ]
-
+*/
 		function aggiungiMarker(impianti) {
+            console.log(impianti)
             impianti.forEach(
                 impianto => {
-                    if (impianto.risposta) {
-                        impiantoAttivo(impianto.latitudine, impianto.longitudine)
+                    if (impianto.status) {
+                        impiantoAttivo(impianto.latitudine, impianto.longitudine, impianto.ultimo_segnale)
                     } else {
-						impiantoInattivo(impianto.latitudine, impianto.longitudine)
+						impiantoInattivo(impianto.latitudine, impianto.longitudine, impianto.ultimo_segnale)
                     }
                 }
             )
 		}
 
 
-        function impiantoAttivo(latitudine, longitudine) {
-			L.marker([latitudine, longitudine], {icon: createIcon('icons/green.png', map.getZoom())}).addTo(map)
+        function impiantoAttivo(latitudine, longitudine, ultimo_seganele) {
+			let marker = L.marker([latitudine, longitudine],
+				{icon: createIcon('icons/green.png', map.getZoom())}).addTo(map)
+	        console.log(ultimo_seganele )
+	       if (ultimo_seganele) {
+               marker.bindPopup(String(ultimo_seganele)).openPopup()
+	       }
         }
 
-        function impiantoInattivo(latitudine, longitudine) {
-            L.marker([latitudine, longitudine], {icon: createIcon('icons/red.png', map.getZoom())}).addTo(map)
+        function impiantoInattivo(latitudine, longitudine, ultimo_segnale) {
+            let marker = L.marker([latitudine, longitudine],
+	            {icon: createIcon('icons/red.png', map.getZoom())}).addTo(map)
+	        console.log(ultimo_segnale)
+	        if (ultimo_segnale) {
+                marker.bindPopup(String(ultimo_seganele)).openPopup()
+	        }
         }
 
 
@@ -122,7 +133,7 @@
             });
         }
 
-        // aggiungiMarker(impianti)
+         //aggiungiMarker(impianti)
         // prova
 		//L.marker([38.12708934982683, 13.310327044206376], {icon: greenIcon}).addTo(map);
 
