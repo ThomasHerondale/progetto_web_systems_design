@@ -31,10 +31,13 @@ public class DataReportServlet extends HttpServlet {
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/NomeDatabase", "user", "password");
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(
-                     "SELECT f.id as facility_id, f.latitude, f.longitude, MAX(s.timestamp) as lastSignal " +
-                             "FROM facilities f " +
-                             "INNER JOIN signals s ON f.id = s.facility_id " +
-                             "GROUP BY f.id, f.latitude, f.longitude")) {
+                     """
+                     SELECT f.id as facility_id, f.latitude, f.longitude, MAX(s.timestamp) as lastSignal
+                     FROM facilities f
+                     INNER JOIN signals s ON f.id = s.facility_id
+                     GROUP BY f.id, f.latitude, f.longitude
+                     """
+             )) {
 
             // Calcola il timestamp di due minuti fa
             Date twoMinutesAgo = new Date(System.currentTimeMillis() - 2 * 60 * 1000);
