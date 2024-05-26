@@ -102,7 +102,7 @@
 				{icon: createIcon('icons/green.png', map.getZoom())}).addTo(map)
 	        console.log(ultimo_segnale )
 	       if (ultimo_segnale) {
-               marker.bindPopup(String(ultimo_segnale)).openPopup()
+               marker.bindPopup('Ultimo segnale: '+String(ultimo_segnale)).openPopup()
 	       }
         }
 
@@ -111,7 +111,7 @@
 	            {icon: createIcon('icons/red.png', map.getZoom())}).addTo(map)
 	        console.log(ultimo_segnale)
 	        if (ultimo_segnale) {
-                marker.bindPopup(String(ultimo_segnale)).openPopup()
+                marker.bindPopup('Ultimo segnale: '+String(ultimo_segnale)).openPopup()
 	        }
         }
 
