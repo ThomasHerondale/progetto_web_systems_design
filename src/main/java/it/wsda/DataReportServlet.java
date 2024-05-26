@@ -3,6 +3,7 @@ package it.wsda;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -42,6 +43,8 @@ public class DataReportServlet extends HttpServlet {
             // Calcola il timestamp di due minuti fa
             Date twoMinutesAgo = new Date(System.currentTimeMillis() - 2 * 60 * 1000);
 
+            // Imposta un formato leggibile per la data
+            SimpleDateFormat isoFormat = new SimpleDateFormat("dd/MM HH:mm:ss");
 
             // Itera sui risultati della query
             while (rs.next()) {
@@ -56,7 +59,7 @@ public class DataReportServlet extends HttpServlet {
                 jsonObject.put("facility_id", facilityId);
                 jsonObject.put("latitude", latitude);
                 jsonObject.put("longitude", longitude);
-                jsonObject.put("lastSignal", lastSignal != null ? lastSignal.getTime() : JSONObject.NULL);
+                jsonObject.put("lastSignal", lastSignal != null ? isoFormat.format(lastSignal) : JSONObject.NULL);
                 jsonObject.put("status", (lastSignal != null && lastSignal.getTime() > twoMinutesAgo.getTime()) ? "Attivo" : "Inattivo");
 
                 // Aggiunge l'oggetto JSON all'array JSON
