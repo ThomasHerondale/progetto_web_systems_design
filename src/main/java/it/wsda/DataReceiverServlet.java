@@ -13,11 +13,13 @@ import java.security.SecureRandom;
 import java.util.Random;
 public class DataReceiverServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         int idImpianto = Integer.parseInt(request.getParameter("facility_id"));
         int idPalinsesto = Integer.parseInt(request.getParameter("schedule_id"));
         String idCartellone = request.getParameter("adv_id");
         int durata = Integer.parseInt(request.getParameter("duration"));
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
         // Genera un signal_id casuale
         String signalId = generateRandomId(10);
 
