@@ -28,19 +28,20 @@ public class DataReportServlet extends HttpServlet {
         // Creo un array JSON per memorizzare i risultati
         JSONArray jsonArray = new JSONArray();
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/NomeDatabase", "user", "password");
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/progetto?serverTimezone=CET", "root", "root");
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(
                      """
                      SELECT f.id as facility_id, f.latitude, f.longitude, MAX(s.timestamp) as lastSignal
                      FROM facilities f
-                     INNER JOIN signals s ON f.id = s.facility_id
+                     LEFT OUTER JOIN signals s ON f.id = s.facility_id
                      GROUP BY f.id, f.latitude, f.longitude
                      """
              )) {
 
             // Calcola il timestamp di due minuti fa
             Date twoMinutesAgo = new Date(System.currentTimeMillis() - 2 * 60 * 1000);
+
 
             // Itera sui risultati della query
             while (rs.next()) {
@@ -64,7 +65,7 @@ public class DataReportServlet extends HttpServlet {
 
             // Scrive l'array JSON nella risposta
             PrintWriter out = response.getWriter();
-            out.print(jsonArray.toString());
+            out.print(jsonArray);
             out.flush();
         } catch (SQLException e) {
             // Stampa lo stack trace dell'eccezione
@@ -76,7 +77,7 @@ public class DataReportServlet extends HttpServlet {
             errorResponse.put("error", "Internal Server Error");
             // Scrive l'oggetto JSON dell'errore nella risposta
             PrintWriter out = response.getWriter();
-            out.print(errorResponse.toString());
+            out.print(errorResponse);
             out.flush();
         }
     }

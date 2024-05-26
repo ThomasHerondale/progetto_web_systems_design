@@ -97,12 +97,12 @@
 		}
 
 
-        function impiantoAttivo(latitudine, longitudine, ultimo_seganele) {
+        function impiantoAttivo(latitudine, longitudine, ultimo_segnale) {
 			let marker = L.marker([latitudine, longitudine],
 				{icon: createIcon('icons/green.png', map.getZoom())}).addTo(map)
-	        console.log(ultimo_seganele )
-	       if (ultimo_seganele) {
-               marker.bindPopup(String(ultimo_seganele)).openPopup()
+	        console.log(ultimo_segnale )
+	       if (ultimo_segnale) {
+               marker.bindPopup(String(ultimo_segnale)).openPopup()
 	       }
         }
 
@@ -111,7 +111,7 @@
 	            {icon: createIcon('icons/red.png', map.getZoom())}).addTo(map)
 	        console.log(ultimo_segnale)
 	        if (ultimo_segnale) {
-                marker.bindPopup(String(ultimo_seganele)).openPopup()
+                marker.bindPopup(String(ultimo_segnale)).openPopup()
 	        }
         }
 
@@ -146,11 +146,12 @@
 					let facilities = []
 					for (let i = 0; i < data.length; i++) {
 						let datum = data[i]
+						console.log(datum);
 						let facility = new impianto(
 								datum["latitude"],
 								datum["longitude"],
 								datum["lastSignal"],
-								datum["status"] === 'ACTIVE'
+								datum["status"] === 'Attivo'
 						)
 						facilities[i] = facility
 					}
