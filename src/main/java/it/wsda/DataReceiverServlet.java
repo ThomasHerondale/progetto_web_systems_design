@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Timestamp;
 import java.security.SecureRandom;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 public class DataReceiverServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,10 +21,14 @@ public class DataReceiverServlet extends HttpServlet {
         int durata = Integer.parseInt(request.getParameter("duration"));
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
+        // Imposta formato timestamp
+        SimpleDateFormat Format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        timestamp = Timestamp.valueOf(Format.format(timestamp));
+
         // Genera un signal_id casuale
         String signalId = generateRandomId(10);
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys?serverTimezone=CET", "root", "root")) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/progetto?serverTimezone=CET", "root", "root")) {
             String sql = "INSERT INTO signals (signal_id,facility_id, schedule_id, adv_id, duration, timestamp) VALUES (?,?, ?, ?, ?, ?)";
             try (PreparedStatement statement = conn.prepareStatement(sql)) {
                 statement.setString(1, signalId);
