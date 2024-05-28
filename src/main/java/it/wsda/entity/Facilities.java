@@ -16,23 +16,27 @@ public class Facilities {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
     private Integer id;
 
-    @Column(nullable = false, length = 256)
+    @Column(nullable = true, length = 256)
     private String description;
 
-    @Column(nullable = false)
-    private double latitude;
+    @Column(nullable = true)
+    private Double latitude;
 
-    @Column(nullable = false)
-    private double longitude;
+    @Column(nullable = true)
+    private Double longitude;
 
-    @Column(nullable = false, columnDefinition = "ENUM('ACTIVE', 'INACTIVE') DEFAULT 'INACTIVE'")
-    private String status;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Status status;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "schedule_id", nullable = false)
+    @JoinColumn(name = "schedule_id", referencedColumnName = "id")
     private Schedules schedule;
+
+    public enum Status {
+        ACTIVE, INACTIVE
+    }
 
 }

@@ -17,13 +17,13 @@ import java.util.List;
 public class Schedules {
 
     @Id
-    @Column(nullable = false, length = 12)
+    @Column(name = "id",nullable = false, length = 12)
     private String id;
 
-    @Column(nullable = false, length = 256)
+    @Column(name = "file_path",nullable = true, length = 256)
     private String filePath;
 
-    @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Facilities> facilities;
 
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
