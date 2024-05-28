@@ -17,23 +17,29 @@ import lombok.Setter;
 public class Signals {
 
     @Id
-    @Column(nullable = false, length = 64)
+    @Column(name = "signal_id", nullable = false, length = 64)
     private String signalId;
 
+    @Column(name = "facility_id", nullable = true)
+    private Integer facilityId;
+
+    @Column(name = "schedule_id", nullable = true, length = 12)
+    private String scheduleId;
+
+    @Column(name = "adv_id", nullable = true, length = 12)
+    private String advId;
+
+    @Column(nullable = true)
+    private Integer duration;
+
+    @Column(nullable = true)
+    private Timestamp timestamp;
+
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "facility_id", nullable = false)
+    @JoinColumn(name = "facility_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Facilities facility;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "schedule_id", nullable = false)
+    @JoinColumn(name = "schedule_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Schedules schedule;
-
-    @Column(nullable = true, length = 12)
-    private String advId;
-
-    @Column(nullable = false)
-    private int duration;
-
-    @Column(nullable = false)
-    private Timestamp timestamp;
 }
