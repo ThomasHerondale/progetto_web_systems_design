@@ -13,5 +13,5 @@ public class FacilityDTO {
     private Double latitude;
     private Double longitude;
     private String status;
-    private String scheduleId;
+    private ScheduleDTO schedule;
 }
