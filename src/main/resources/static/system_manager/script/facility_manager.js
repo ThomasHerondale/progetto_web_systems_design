@@ -86,3 +86,36 @@ function addFacility(facility, onSuccess, onError) {
         "json"
     )
 }
+
+/*
+    - Creazione di liste di prova per la costruzione della tabella
+*/
+
+const facilitis = [
+    new Facility(1, 'Mothers laugh showcase aggressive amanda avenue course', 38.11422601344605, 13.364700784279123, '1'),
+    new Facility(2, 'Shoes prefer expensive stack paste adsl upload', 38.109464991746805, 13.362469186579995, '2'),
+    new Facility(3, 'Seafood participant intervention contrary located shock fruits', 38.12216320330426, 13.360901448489713, '3')
+]
+
+const schedules = [
+    new Schedule('1', 'xml_files/programme_schedule1.xml'),
+    new Schedule('2', 'xml_files/programme_schedule2.xml'),
+    new Schedule('3', 'xml_files/programme_schedule3.xml')
+]
+
+/**
+ * populateTable è la funzione che si occupa di popolare la tabella dinamicamente.
+ *
+ * Riceve una lista di oggetti Facility
+ * @param {Facility[]} listOfFacilitis
+ * */
+function populateTable(listOfFacilitis) {
+
+    const body = document.getElementById('t-body')
+
+    facilitis.forEach(
+        facility => {
+
+        }
+    )
+}
