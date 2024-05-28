@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "schedules")
-public class Schedules {
+public class Schedule {
 
     @Id
     @Column(name = "id",nullable = false, length = 12)
@@ -24,8 +24,8 @@ public class Schedules {
     private String filePath;
 
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Facilities> facilities;
+    private List<Facility> facilities;
 
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Signals> signals;
+    private List<Signal> signals;
 }

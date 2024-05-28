@@ -14,7 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "signals")
-public class Signals {
+public class Signal {
 
     @Id
     @Column(name = "signal_id", nullable = false, length = 64)
@@ -37,9 +37,9 @@ public class Signals {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "facility_id", referencedColumnName = "id", insertable = false, updatable = false)
-    private Facilities facility;
+    private Facility facility;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "schedule_id", referencedColumnName = "id", insertable = false, updatable = false)
-    private Schedules schedule;
+    private Schedule schedule;
 }

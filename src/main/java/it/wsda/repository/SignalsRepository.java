@@ -1,21 +1,21 @@
 package it.wsda.repository;
 
-import it.wsda.entity.Signals;
-import it.wsda.entity.Facilities;
+import it.wsda.entity.Signal;
+import it.wsda.entity.Facility;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface SignalsRepository extends JpaRepository<Signals, String> {
+public interface SignalsRepository extends JpaRepository<Signal, String> {
 
     // Questo metodo trova un segnale specifico dato il suo ID.
-    Signals findSignalsBySignalId(String signalId);
+    Signal findSignalsBySignalId(String signalId);
 
     // Questo metodo trova tutti i segnali associati a uno specifico impianto.
-    List<Signals> findAllByFacility(Facilities facility);
+    List<Signal> findAllByFacility(Facility facility);
 
     // Questo metodo trova tutti i segnali associati a un determinato ID del palinsesto.
-    List<Signals> findAllByScheduleId(String scheduleId);
+    List<Signal> findAllByScheduleId(String scheduleId);
 }

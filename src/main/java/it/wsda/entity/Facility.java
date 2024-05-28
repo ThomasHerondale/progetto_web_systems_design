@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "facilities")
-public class Facilities {
+public class Facility {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class Facilities {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "schedule_id", referencedColumnName = "id")
-    private Schedules schedule;
+    private Schedule schedule;
 
     public enum Status {
         ACTIVE, INACTIVE
