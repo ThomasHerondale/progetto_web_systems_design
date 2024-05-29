@@ -1,6 +1,7 @@
 package it.wsda.services.impl;
 
 import it.wsda.dto.FacilityDTO;
+import it.wsda.entity.Facility;
 import it.wsda.entity.Facility.Status;
 import it.wsda.entity.Schedule;
 import it.wsda.repository.FacilitiesRepository;
@@ -12,16 +13,18 @@ import java.util.Collection;
 
 @Service
 public class FacilityServiceImpl implements FacilityService {
-    private final FacilitiesRepository repository;
+    private final FacilitiesRepository facilitiesRepository;
 
     @Autowired
-    public FacilityServiceImpl(FacilitiesRepository repository) {
-        this.repository = repository;
+    public FacilityServiceImpl(
+            FacilitiesRepository facilitiesRepository
+    ) {
+        this.facilitiesRepository = facilitiesRepository;
     }
 
     @Override
     public Collection<FacilityDTO> getAllFacilities() {
-        return repository.findAll()
+        return facilitiesRepository.findAll()
                 .stream()
                 .map(FacilityDTO::fromEntity)
                 .toList();
@@ -29,16 +32,29 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void updateFacility(FacilityDTO facilityDTO) {
-        var optFacility = repository.findFacilitiesById(facilityDTO.getId());
+        var optFacility = facilitiesRepository.findFacilitiesById(facilityDTO.getId());
 
         // update facility data if match is found
         if (optFacility.isPresent()) {
             optFacility.get().setStatus(Status.valueOf(facilityDTO.getStatus()));
             optFacility.get().setSchedule(Schedule.fromDTO(facilityDTO.getSchedule()));
 
-            repository.save(optFacility.get());
+            facilitiesRepository.save(optFacility.get());
         } else {
             throw new RuntimeException("No facility with id " + facilityDTO.getId() + " has been found.");
         }
+    }
+
+    @Override
+    public void createFacility(FacilityDTO facilityDTO) {
+        var facility = new Facility();
+        facility.setId(facilityDTO.getId());
+        facility.setDescription(facilityDTO.getDescription());
+        facility.setLatitude(facilityDTO.getLatitude());
+        facility.setLongitude(facilityDTO.getLongitude());
+        facility.setStatus(Status.valueOf(facilityDTO.getStatus()));
+        facility.setSchedule(Schedule.fromDTO(facilityDTO.getSchedule()));
+
+        facilitiesRepository.save(facility);
     }
 }

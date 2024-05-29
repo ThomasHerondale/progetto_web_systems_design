@@ -8,4 +8,6 @@ public interface FacilityService {
     Collection<FacilityDTO> getAllFacilities();
 
     void updateFacility(FacilityDTO facilityDTO);
+
+    void createFacility(FacilityDTO facilityDTO);
 }
