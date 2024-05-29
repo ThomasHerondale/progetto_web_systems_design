@@ -20,19 +20,22 @@ public class Signal {
     @Column(name = "signal_id", nullable = false, length = 64)
     private String signalId;
 
-    @Column(name = "facility_id", nullable = true)
+    @Column(name = "facility_id")
     private Integer facilityId;
 
-    @Column(name = "schedule_id", nullable = true, length = 12)
+    @Column(name = "session_id")
+    private String sessionId;
+
+    @Column(name = "schedule_id", length = 12)
     private String scheduleId;
 
-    @Column(name = "adv_id", nullable = true, length = 12)
+    @Column(name = "adv_id", length = 12)
     private String advId;
 
-    @Column(nullable = true)
+    @Column
     private Integer duration;
 
-    @Column(nullable = true)
+    @Column
     private Timestamp timestamp;
 
     @ManyToOne(fetch = FetchType.EAGER)
