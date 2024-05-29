@@ -18,13 +18,13 @@ public class Facility {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = true, length = 256)
+    @Column(length = 256)
     private String description;
 
-    @Column(nullable = true)
+    @Column()
     private Double latitude;
 
-    @Column(nullable = true)
+    @Column()
     private Double longitude;
 
     @Enumerated(EnumType.STRING)

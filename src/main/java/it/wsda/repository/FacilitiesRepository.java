@@ -3,14 +3,18 @@ import it.wsda.entity.Facility;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+
+import static it.wsda.entity.Facility.*;
 
 @Repository
 public interface FacilitiesRepository extends JpaRepository<Facility, Integer> {
 
     // Questo metodo trova un impianto specifico dato il suo ID.
-    Facility findFacilitiesById(Integer id);
+    Optional<Facility> findFacilitiesById(Integer id);
 
     // Questo metodo trova tutti gli impianti con un determinato stato (attivo/inattivo).
-    List<Facility> findAllByStatus(String status);
+    List<Facility> findAllByStatus(Status status);
 }

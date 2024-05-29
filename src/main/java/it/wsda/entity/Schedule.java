@@ -1,5 +1,6 @@
 package it.wsda.entity;
 
+import it.wsda.dto.ScheduleDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,4 +29,11 @@ public class Schedule {
 
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Signal> signals;
+
+    public static Schedule fromDTO(ScheduleDTO dto) {
+        var schedule = new Schedule();
+        schedule.setId(dto.getId());
+        schedule.setFilePath(dto.getFilePath());
+        return schedule;
+    }
 }
