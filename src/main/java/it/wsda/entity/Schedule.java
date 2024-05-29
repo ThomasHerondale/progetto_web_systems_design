@@ -21,7 +21,7 @@ public class Schedule {
     @Column(name = "id",nullable = false, length = 12)
     private String id;
 
-    @Column(name = "file_path",nullable = true, length = 256)
+    @Column(name = "file_path", length = 256)
     private String filePath;
 
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
