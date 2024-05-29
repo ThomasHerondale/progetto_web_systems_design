@@ -15,6 +15,11 @@ import java.util.Random;
 public class DataReceiverServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // Imposta gli header CORS per permettere richieste da qualsiasi origine
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
         int idImpianto = Integer.parseInt(request.getParameter("facility_id"));
         String idSessione = request.getParameter("session_id");
         int idPalinsesto = Integer.parseInt(request.getParameter("schedule_id"));
