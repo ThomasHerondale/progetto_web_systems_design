@@ -5,18 +5,18 @@ import it.wsda.entity.Facility;
 import it.wsda.entity.Facility.Status;
 import it.wsda.entity.Schedule;
 import it.wsda.repository.FacilitiesRepository;
-import it.wsda.services.FacilityService;
+import it.wsda.services.FacilitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
 @Service
-public class FacilityServiceImpl implements FacilityService {
+public class FacilitiesServiceImpl implements FacilitiesService {
     private final FacilitiesRepository facilitiesRepository;
 
     @Autowired
-    public FacilityServiceImpl(
+    public FacilitiesServiceImpl(
             FacilitiesRepository facilitiesRepository
     ) {
         this.facilitiesRepository = facilitiesRepository;

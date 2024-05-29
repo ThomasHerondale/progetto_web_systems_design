@@ -4,7 +4,7 @@ import it.wsda.dto.FacilityDTO;
 
 import java.util.Collection;
 
-public interface FacilityService {
+public interface FacilitiesService {
     Collection<FacilityDTO> getAllFacilities();
 
     void updateFacility(FacilityDTO facilityDTO);
