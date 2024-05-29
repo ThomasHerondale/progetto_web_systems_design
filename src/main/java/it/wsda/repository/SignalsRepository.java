@@ -23,9 +23,9 @@ public interface SignalsRepository extends JpaRepository<Signal, String> {
     @Query("""
         SELECT SUM(session_duration.duration) AS total_duration
         FROM (
-                 SELECT s.duration
+                 SELECT s.duration AS duration
                  FROM Signal s
-                 WHERE s.advId = ?
+                 WHERE s.advId = :adv_id
                  GROUP BY s.sessionId
              ) AS session_duration
     """)
