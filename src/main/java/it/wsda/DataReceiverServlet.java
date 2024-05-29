@@ -16,6 +16,7 @@ public class DataReceiverServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int idImpianto = Integer.parseInt(request.getParameter("facility_id"));
+        String idSessione = request.getParameter("session_id");
         int idPalinsesto = Integer.parseInt(request.getParameter("schedule_id"));
         String idCartellone = request.getParameter("adv_id");
         int durata = Integer.parseInt(request.getParameter("duration"));
@@ -33,10 +34,11 @@ public class DataReceiverServlet extends HttpServlet {
             try (PreparedStatement statement = conn.prepareStatement(sql)) {
                 statement.setString(1, signalId);
                 statement.setInt(2, idImpianto);
-                statement.setInt(3, idPalinsesto);
-                statement.setString(4, idCartellone);
-                statement.setInt(5, durata);
-                statement.setTimestamp(6, timestamp);
+                statement.setString(3, idSessione);
+                statement.setInt(4, idPalinsesto);
+                statement.setString(5, idCartellone);
+                statement.setInt(6, durata);
+                statement.setTimestamp(7, timestamp);
                 statement.executeUpdate();
             }
         } catch (Exception e) {
