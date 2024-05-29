@@ -17,7 +17,6 @@
 			loadWeatherSetup()
 			loadDateTimeSetup()
 			loadAdvertisementSetup()
-			sendSignal()
 		}
 	</script>
 	<script>
@@ -65,7 +64,7 @@
 		}
 	</script>
 	<script>
-		let idx = 0
+		let idx = -1
 		let schedule = null;
 		let schedule_id = null
 
@@ -76,8 +75,8 @@
 
 		function selectSchedule() {
 			// let idx = Math.floor(Math.random() * 5 + 1)
-			idx = 2
-			return idx
+			let index = 3
+			return index
 		}
 
 		function readSchedule(fname) {
@@ -85,32 +84,36 @@
 			req.open('GET', fname, true)
 			req.onload = function () {
 				schedule = parseSchedule(this.responseXML)
-				sendSignal()
 				advertisementSetup()
+				sendSignal()
 			}
 			req.send()
 		}
 
 		function advertisementSetup() {
-			const ad = schedule[idx];
-			document.getElementById('content').src = ad.url
 			if (idx === 9)
 				idx = 0
 			else
 				idx++
+			const ad = schedule[idx];
+			document.getElementById('content').src = ad.url
 			setTimeout("advertisementSetup()", ad.duration * 1000)
 		}
 	</script>
 	<script>
+		let lastAdv = ""
+		let lastSession = ""
+
 		function sendSignal() {
 			console.log("Sending request...")
-			console.log(schedule[idx].id)
 			let date = new Date()
+			generateSessionId(schedule[idx].id)
+			lastAdv = schedule[idx].id
 			$.post('http://127.0.0.1:8080/receiveData',
 					{
 						facility_id: 1,
 						schedule_id: schedule_id,
-						session_id: generateSessionId(),
+						session_id: lastSession,
 						adv_id: schedule[idx].id,
 						duration: schedule[idx].duration,
 						timestamp: date.toISOString()
@@ -119,17 +122,20 @@
 						console.log(`Request endend with status ${status}`)
 					}
 			)
+			setTimeout("sendSignal()", 5000)
 		}
-		setTimeout("sendSignal()", 50000)
 
-		function generateSessionId() {
+		function generateSessionId(advId) {
+			if (advId === lastAdv)
+				return
+
 			let chars = "ABCDEFGHIJKLMNOPQRSTUVZ"
 			let sessionId = ""
 			for (let i = 0; i < 4; i++) {
 				let idx = Math.floor(Math.random() * (chars.length - 1))
 				sessionId += chars[idx]
 			}
-			return sessionId
+			lastSession = sessionId
 		}
 	</script>
 </head>
