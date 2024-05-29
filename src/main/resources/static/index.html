@@ -110,6 +110,7 @@
 					{
 						facility_id: 1,
 						schedule_id: schedule_id,
+						session_id: generateSessionId(),
 						adv_id: schedule[idx].id,
 						duration: schedule[idx].duration,
 						timestamp: date.toISOString()
@@ -120,6 +121,16 @@
 			)
 		}
 		setTimeout("sendSignal()", 50000)
+
+		function generateSessionId() {
+			let chars = "ABCDEFGHIJKLMNOPQRSTUVZ"
+			let sessionId = ""
+			for (let i = 0; i < 4; i++) {
+				let idx = Math.floor(Math.random() * (chars.length - 1))
+				sessionId += chars[idx]
+			}
+			return sessionId
+		}
 	</script>
 </head>
 <body onload="setup()">
