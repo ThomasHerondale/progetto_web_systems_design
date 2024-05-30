@@ -1,5 +1,4 @@
 package it.wsda.security;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,12 +16,37 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class WebSecurityConfiguration {
 
+    private final UserDetailsService userDetailsService;
+
+    public WebSecurityConfiguration(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
+
+    @Bean
+    public static PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
-                        .anyRequest().permitAll());
+                        .requestMatchers("/", "/users/login","/receiveData","/reportData").permitAll()
+                        .requestMatchers("/users/admin/**").hasAuthority("admin")
+                        .anyRequest().authenticated())
+                .formLogin(form -> form
+                        .loginPage("/users/login")
+                        .permitAll())
+                .logout(logout -> logout
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/users/logout"))
+                        .permitAll())
+                .exceptionHandling(exc -> exc
+                        .accessDeniedPage("/not-allowed"));
 
         return http.build();
     }
