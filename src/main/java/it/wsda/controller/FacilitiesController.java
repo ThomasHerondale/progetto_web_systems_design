@@ -13,8 +13,11 @@ import java.util.Collection;
 @RequestMapping("/facilities")
 public class FacilitiesController {
 
-    @Autowired
-    private FacilitiesService facilitiesService;
+    private final FacilitiesService facilitiesService;
+
+    public FacilitiesController(FacilitiesService facilitiesService) {
+        this.facilitiesService = facilitiesService;
+    }
 
     @GetMapping
     @ResponseBody

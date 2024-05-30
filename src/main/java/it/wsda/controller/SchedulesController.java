@@ -14,8 +14,11 @@ import java.util.Collection;
 @RequestMapping("/schedules")
 public class SchedulesController {
 
-    @Autowired
-    private SchedulesService schedulesService;
+    private final SchedulesService schedulesService;
+
+    public SchedulesController(SchedulesService schedulesService) {
+        this.schedulesService = schedulesService;
+    }
 
     @GetMapping
     @ResponseBody
