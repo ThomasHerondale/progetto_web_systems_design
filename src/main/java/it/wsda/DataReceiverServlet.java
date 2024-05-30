@@ -17,7 +17,7 @@ public class DataReceiverServlet extends HttpServlet {
 
         // Imposta gli header CORS per permettere richieste da qualsiasi origine
         response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "GET");
+        response.setHeader("Access-Control-Allow-Methods", "POST");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
         int idImpianto = Integer.parseInt(request.getParameter("facility_id"));
