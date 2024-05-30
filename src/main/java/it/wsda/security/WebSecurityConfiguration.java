@@ -17,37 +17,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class WebSecurityConfiguration {
 
-    private final UserDetailsService userDetailsService;
-
-    public WebSecurityConfiguration(UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
-
-    @Bean
-    public static PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/", "/users/login", "/public/**").permitAll()
-                        .requestMatchers("/users/admin/**").hasAuthority("admin")
-                        .anyRequest().authenticated())
-                .exceptionHandling(exc -> exc
-                        .accessDeniedPage("/not-allowed"))
-                .formLogin(form -> form
-                        .loginPage("/users/login")
-                        .permitAll())
-                .logout(logout -> logout
-                        .logoutRequestMatcher(new AntPathRequestMatcher("/users/logout"))
-                        .permitAll());
+                        .anyRequest().permitAll());
 
         return http.build();
     }
