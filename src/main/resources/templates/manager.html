@@ -1,44 +1,62 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>System manager</title>
-
-	<link rel="stylesheet"
-	      th:href="@{./templates_style/table_style.css}"
-	      type="text/css"/>
-	<link rel="stylesheet"
-	      th:href="@{./templates_style/style.css}"
-	      type="text/css"
-	/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>System Manager</title>
+	<link rel="stylesheet" th:href="@{/templates_style/manager_style.css}"></link>
 	<!--<script type="text/javascript" src="../static/templates_script/facility_manager.js"></script>
-	<script type="text/javascript" src="../static/templates_script/table_manager.js" defer></script>-->
+<script type="text/javascript" src="../static/templates_script/table_manager.js" defer></script>-->
 </head>
-
 <body>
-    <div class="page-title">
-        <h1>Gestione impianto</h1>
-    </div>
-    <div th:class="'monitoring-system'">
-        <div th:class="'container'">
-            <!--<div class='popup' id='popup'>
-                <div class="popup-body" id="popup-body"></div>
-            </div>-->
-            <table th:class="'table'">
-	            <thead th:class="'table-thead'">
-                    <tr>
-                        <th>Status</th>
-                        <th>Nome Impianto</th>
-                        <th>Palinsesto</th>
-                        <th>Azione</th>
-                    </tr>
-	            </thead>
-				<tbody id="body">
-				</tbody>
-            </table>
-	        <button th:class="button">Salva</button>
-        </div>
-    </div>
+<div class="container">
+	<div class="page-title">
+		<h1>Gestione Impianti</h1>
+	</div>
+	<div class="Information-container">
+		<div class="table-container">
+			<form th:action="@{/update}" method="post">
+				<table>
+					<thead>
+					<tr>
+						<th>Stato</th>
+						<th>Impianto</th>
+						<th>Palinsesto</th>
+						<th>Operazione</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr th:each = "facility : ${facilities}">
+							<td>
+								<div th:class="${facility.status == 'ACTIVE' ? 'status-active' : 'status-unactive'}"
+						        th:text="${facility.status}"/>
+							</td>
+							<td th:text="'Impianto ' + ${facility.id}"/>
+							<td>
+								<select     th:name="'Palinsesto ' + ${facility.schedule}"
+										th:value="${facility.schedule}">
+									<option th:each=" schedule : ${schedules}" th:value="${schedule.id}"
+							                th:text="'Palinsesto ' + ${schedule.id}"
+							                th:selected="${facility.schedule == schedule.id}"/>
+								</select>
+							</td>
+							<td>
+								<button type="submit"
+										th:class="${facility.status == 'ACTIVE' ? 'btn-toggle active' : 'btn-toggle'}"
+										th:text="${facility.status == 'ACTIVE' ? 'Disattiva' : 'Attiva'}"
+								        th:name="toglleId"
+										th:value="${facility.id}">
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<div class="input-container">
+				<input type="submit" value="Invia Dati">
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
 </body>
 </html>
