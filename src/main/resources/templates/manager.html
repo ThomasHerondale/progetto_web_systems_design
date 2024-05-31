@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>System manager</title>
+
+	<link rel="stylesheet"
+	      th:href="@{./templates_style/table_style.css}"
+	      type="text/css"/>
+	<link rel="stylesheet"
+	      th:href="@{./templates_style/style.css}"
+	      type="text/css"
+	/>
+	<!--<script type="text/javascript" src="../static/templates_script/facility_manager.js"></script>
+	<script type="text/javascript" src="../static/templates_script/table_manager.js" defer></script>-->
+</head>
+
+<body>
+    <div class="page-title">
+        <h1>Gestione impianto</h1>
+    </div>
+    <div th:class="'monitoring-system'">
+        <div th:class="'container'">
+            <!--<div class='popup' id='popup'>
+                <div class="popup-body" id="popup-body"></div>
+            </div>-->
+            <table th:class="'table'">
+	            <thead th:class="'table-thead'">
+                    <tr>
+                        <th>Status</th>
+                        <th>Nome Impianto</th>
+                        <th>Palinsesto</th>
+                        <th>Azione</th>
+                    </tr>
+	            </thead>
+				<tbody id="body">
+				</tbody>
+            </table>
+	        <button th:class="button">Salva</button>
+        </div>
+    </div>
+</body>
+</html>
