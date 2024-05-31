@@ -1,4 +1,7 @@
 package it.wsda.security;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,11 +9,17 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
@@ -42,6 +51,16 @@ public class WebSecurityConfiguration {
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/users/login")
+                        .loginProcessingUrl("/users/login")
+                        .defaultSuccessUrl("/", true)
+                        .successHandler(new SimpleUrlAuthenticationSuccessHandler() {
+                            @Override
+                            protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+                                SavedRequest savedRequest = new HttpSessionRequestCache().getRequest(request, response);
+                                String targetUrl = savedRequest != null ? savedRequest.getRedirectUrl() : "/";
+                                response.sendRedirect(targetUrl);
+                            }
+                        })
                         .permitAll())
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/users/logout"))
