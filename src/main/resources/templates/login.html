@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Hello world</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/templates_style/table_style.css"/>
+    <title>Login</title>
 </head>
 <body>
-    <form action="#" th:action="@{/users/login/}" th:object="${user}" method="post">
-        <label>
-            Username
-            <input type="text" th:field="*{username}">
-        </label>
-        <label>
-            Password
-            <input type="password" th:field="*{password}">
-        </label>
-        <input type="submit" value="Login"/>
-    </form>
+    <div class="container">
+        <div class="login">
+            <h3>Login</h3>
+            <form action="#" th:action="@{/users/login/}" th:object="${user}" method="post">
+                <div class="input-container">
+                    <label>
+                        <!-- Username -->
+                        <input placeholder="username" type="text" th:field="*{username}">
+                    </label>
+                    <label>
+                        <!-- Password -->
+                        <input placeholder= "password" type="password" th:field="*{password}">
+                    </label>
+                </div>
+                <input class="buttom" type="submit" value="Login"/>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
