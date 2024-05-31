@@ -38,6 +38,7 @@ public class WebSecurityConfiguration {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/", "/users/login","/receiveData","/reportData").permitAll()
                         .requestMatchers("/users/admin/**").hasAuthority("admin")
+                        .requestMatchers("/templates_style/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/users/login")

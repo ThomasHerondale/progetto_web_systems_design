@@ -33,21 +33,18 @@ public class UserController {
     }
 
     @GetMapping("/admin/create-user")
-    public String createUserForm() {
-        return "/users/admin/create-user";
+    public String createUserForm(Model model) {
+        model.addAttribute("user", new NewUserDTO());
+        return "createUser";
     }
 
     @PostMapping("/admin/create-user")
-    @ResponseBody
-    public UserDTO createUser(@Valid @RequestBody NewUserDTO userDTO, HttpServletResponse response) {
-        // Controlla se l'utente esiste già
-        if (userService.getUserByUsername(userDTO.getUsername()) != null) {
-            response.setStatus(HttpServletResponse.SC_CONFLICT);
-            return null;
-        }
+    public String createUser(@ModelAttribute NewUserDTO user, Model model) {
+        // TODO: Controlla se l'utente esiste già
 
-        userService.createUser(userDTO);
-        response.setStatus(HttpServletResponse.SC_CREATED);
-        return userService.mapToUserDTO(userDTO);
+        userService.createUser(user);
+        model.addAttribute("user", user);
+
+        return "login";
     }
 }
