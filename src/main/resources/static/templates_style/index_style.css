@@ -1,0 +1,67 @@
+            body {
+                margin: 0;
+                width: 100%;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+            }
+
+            .heider-container {
+                background-color: #0088EA;
+                width: 100%;
+                padding: 1%;
+                color: white;
+                font-family: 'Roboto', open-sans;
+                font-weight: bold;
+            }
+
+            .logo {
+                font-size: 5vw;
+            }
+
+            .mini-logo {
+                font-size: 2vw;
+            }
+
+            .menu-container {
+                /* width: 100%; */
+                margin: 2% 0%;
+                display: grid;
+                grid-template-columns: 15% 15% 15%;
+                gap: 5%;
+                align-items: center;
+                justify-content: center;
+            }
+
+
+            .card {
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+              transition: 0.3s;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              max-width: 100%;
+              border: 1px solid black;
+              border-radius: 10px;
+               text-decoration: none;
+            }
+
+            .card img {
+                width: 100%;
+            }
+
+            .card:hover {
+                box-shadow: 0 16px 22px 0 rgba(0,0,0,0.2);
+            }
+
+            .title-card-container {
+                text-align: center;
+                font-family: 'Roboto', open-sans;
+                font-size: 1.5vw;
+                padding: 5%;
+                font-weight: bolder;
+
+            }

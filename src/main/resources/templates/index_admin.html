@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menu</title>
+        <link th:href="@{/templates_style/index_admin.html}" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="heider-container">
+                <span class="logo">ADV</span>
+                <span class="mini-logo">Sicily</span>
+            </div>
+            <div class="menu-container">
+                <a th:href="@{/map/index.html}" class="card">
+                    <img th:src="@{/templates_style/img/map.png}" alt="Mappa">
+                    <div class="title-card-container">
+                        <span>Mappa</span>
+                    </div>
+                </a>
+                <a th:href="@{manager.html}" class="card">
+                    <img th:src="@{/templates_style/img/facility.png}" alt="Facility" style="width: 90%; padding: 4%;">
+                    <div class="title-card-container">
+                        <span class="card-title">Gestione Impianto</span>
+                    </div>
+                </a>
+                <a th:href="" class="card">
+                    <img th:src="@{/templates_style/img/report.png}" alt="Report">
+                    <div class="title-card-container">
+                        <span class="card-title">Reportistica</span>
+                    </div>
+                </a>
+                <a th:href="" class="card">
+                    <img th:src="@{/templates_style/img/insert.png}" alt="Insert">
+                    <div class="title-card-container">
+                        <span class="card-title">Aggiungi Impianto</span>
+                    </div>
+                </a>
+                <a th:href="@{login.html}" class="card">
+                    <img th:src="@{/templates_style/img/logout.png}" alt="Mappa">
+                    <div class="title-card-container">
+                        <span class="card-title">Logout</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </body>
+</html>
