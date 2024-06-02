@@ -29,7 +29,7 @@ public class SignalsServiceImpl implements SignalsService {
 
         var map = new HashMap<String, Integer>();
         for (var signal : signals) {
-            map.merge(signal.getSessionId(), signal.getDuration(), Integer::sum);
+            map.merge(signal.getAdvId(), signal.getDuration(), Integer::sum);
         }
         System.out.println(map);
 
