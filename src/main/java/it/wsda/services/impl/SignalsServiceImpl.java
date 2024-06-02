@@ -6,6 +6,7 @@ import it.wsda.services.SignalsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,13 +26,26 @@ public class SignalsServiceImpl implements SignalsService {
                 .distinct()     // get only one signal per sessionId
                 .toList();
 
-        System.out.println(signals);
+        var map = new HashMap<String, Integer>();
+        for (var signal : signals) {
+            map.merge(signal.getAdvId(), signal.getDuration(), Integer::sum);
+        }
+
+        return map;
+    }
+
+    @Override
+    public Map<String, Integer> getAdvScreenTimes(Date startDate, Date endDate) {
+        var signals = repository.findAllByTimeRange(startDate, endDate)
+                .stream()
+                .map(SignalDTO::fromEntity)
+                .distinct()
+                .toList();
 
         var map = new HashMap<String, Integer>();
         for (var signal : signals) {
             map.merge(signal.getAdvId(), signal.getDuration(), Integer::sum);
         }
-        System.out.println(map);
 
         return map;
     }
