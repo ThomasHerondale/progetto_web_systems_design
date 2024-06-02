@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aggiungi impianto</title>
+        <link rel="stylesheet" th:href="@{/templates_style/insert_style.css}" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card-form">
+                <h2>Inserisci Impianto</h2>
+                <form method="post">
+                    <div class="input-container">
+                        <label>Inserisci una breve descrizione dell'impianto da inserire</label>
+                        <input type="textarea" placeholder="description..." name="description" rows="4" required>
+                    </div>
+                    <div class="input-number-container">
+                        <div class="input-container">
+                            <label>Inserisci la latidutine delll'impianto</label>
+                            <input type="number" placeholder="ex. 62.345" required>
+                        </div>
+                        <div class="input-container">
+                            <label>Inserisci la longitudine dell'impianto</label>
+                            <input type="number" placeholder="ex. 34.6712" required>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <label>Inserisci il palinsesto</label>
+                        <select required>
+                            <option>ciao</option>
+                        </select>
+                    </div>
+                    <div class="input-container">
+                        <label>Stato</label>
+                        <button class="status">Attiva</button>
+                    </div>
+                    <button type="submit">Invia</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

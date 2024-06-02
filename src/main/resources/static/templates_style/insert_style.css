@@ -1,0 +1,116 @@
+            body {
+                margin: 0;
+            }
+
+            .container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-items: center;
+            }
+
+            .card-form{
+                position: fixed;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 5%;
+                border: 2px solid #0088EA;
+                border-radius: 10px;
+                padding: 1%;
+                box-shadow: 0 0 150px rgba(0, 0, 0, 0.1);
+                max-height: 500px;
+            }
+
+            h2 {
+                text-align: center;
+                font-family: 'Roboto', open-sans;
+                font-weight: bold;
+                font-size: 3vw;
+                color: #333;
+            }
+
+            .input-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin: 2% auto;
+            }
+
+            .input-number-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 5%;
+                padding: 1%;
+            }
+
+            .input-container label {
+                font-family: 'Roboto', open-sans;
+                font-size: 1.3vw;
+                margin: 0% 2%;
+                display: block;
+                width: 100%;
+
+            }
+
+            .input-container input {
+                align-self: center;
+                padding: 2% 3%;
+                margin: 1% auto;
+                font-size: 1vw;
+                width: 80%;
+                border: 2px solid #0088EA;
+                border-radius: 4px;
+            }
+
+            input:focus {
+                border: 2px solid lightblue;
+            }
+
+
+            button {
+                background-color: #5cb25d;
+                color: white;
+                padding: 2%;
+                font-size: 1em;
+                width: 50%;
+                margin: 1% auto;
+                border-radius: 5px;
+                display: block;
+                border: none;
+                font-family: 'Roboto', open-sans;
+                font-weight: bold;
+            }
+
+            button:hover {
+                background: white;
+                color: #5cb25d;
+                border: 2px solid #5cb25d;
+
+            }
+
+            button[type="submit"] {
+                background-color: #0088EA;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1em;
+                display: block;
+                margin: 5% auto;
+                width: 50%;
+                }
+
+            button[type="submit"]:hover {
+                    background-color: #0056b3;
+            }
+
+            .input-container select {
+                font-size: 1.3vw;
+                margin: 1% auto;
+                font-family: 'Roboto', open-sans;
+                border: 1px solid #0088EA;
+                width: 80%;
+            }
