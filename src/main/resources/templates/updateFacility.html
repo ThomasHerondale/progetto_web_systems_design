@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Modifica Impianto</title>
+</head>
+<body>
+  <p th:text="'Impianto ' + ${facility.id}"></p>
+  <form th:object="${facility}" th:action="@{/facilities/update}" method="post">
+    <label>
+      <select th:name="'Palinsesto ' + ${facility.schedule.id}" th:value="${facility.schedule}">
+        <option th:each="schedule : ${schedules}"
+                th:value="${schedule.id}"
+                th:text="'Palinsesto ' + ${schedule.id}"
+                th:selected="${facility.schedule == schedule.id}"/>
+      </select>
+    </label>
+    <label>
+      <input type="checkbox"
+             th:text="${facility.status == 'ACTIVE' ? 'Disattiva' : 'Attiva'}"
+             th:field="${facility.status}"
+             th:value="${toggleStatus}"/>
+    </label>
+    <button type="submit" th:text="'Conferma'"/>
+  </form>
+</body>
+</html>
