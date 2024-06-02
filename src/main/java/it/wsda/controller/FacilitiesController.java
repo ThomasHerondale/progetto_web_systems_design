@@ -39,6 +39,7 @@ public class FacilitiesController {
     @GetMapping("/create")
     public String createFacility(Model model) {
         model.addAttribute("facility", new FacilityDTO());
+        model.addAttribute("schedules", schedulesService.getAllSchedules());
         return "createFacility";
     }
 
