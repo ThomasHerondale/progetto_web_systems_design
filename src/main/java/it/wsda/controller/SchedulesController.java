@@ -36,8 +36,14 @@ public class SchedulesController {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
     }
+
     @GetMapping("/schedule")
-    public ScheduleDTO getScheduleByFacilityId(@RequestParam int facilityId) {
+    @CrossOrigin
+    @ResponseBody
+    public ScheduleDTO getScheduleByFacilityId(@RequestParam int facilityId, HttpServletResponse response) {
+        response.setHeader("Access-Control-Allow-Origin", "");
+        response.setHeader("Access-Control-Allow-Methods", "GET");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
         // Recupera il palinsesto associato all'impianto dato l'ID dell'impianto
         return schedulesService.getScheduleByFacilityId(facilityId);
     }

@@ -46,7 +46,12 @@ public class WebSecurityConfiguration {
                         .requestMatchers("/facilities/create",   "/facilities/update/**").permitAll() // TODO: auth
                         .requestMatchers("/report/**").permitAll() // TODO: auth
                         .requestMatchers("/templates_style/**").permitAll()
+                        .requestMatchers("/styles/**").permitAll()
+                        .requestMatchers("/images/**").permitAll()
                         .requestMatchers("/map/**").permitAll() // TODO: auth
+                        .requestMatchers("/wsda/**").permitAll()
+                        .requestMatchers("/schedules/schedule/**").permitAll()
+                        .requestMatchers("/xml_files/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/users/login")

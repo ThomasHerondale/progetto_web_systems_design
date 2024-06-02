@@ -11,6 +11,7 @@ public class LedWallController {
     @GetMapping("/wsda")
     public String showLedWall(@RequestParam int id, Model model) {
         model.addAttribute("facilityId", id);
+
         return "led_wall";
     }
 }
