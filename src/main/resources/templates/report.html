@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Report</title>
+    <link th:href="@{/templates_style/report_style.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="report-container">
-    <h1>Report dei Tempi di Schermo degli Annunci</h1>
+    <div class="header">
+        <a th:href="@{/admin}">Home</a>
+        <h1>Report dei Tempi di Schermo degli Annunci</h1>
+    </div>
     <form th:action="@{/report}" method="get">
         <label>
             Data Inizio:
