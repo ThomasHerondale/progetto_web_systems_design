@@ -32,10 +32,9 @@ public class UserController {
         return "report";
     }
 
-    @GetMapping("/admin/create-user")
-    public String createUserForm(Model model) {
-        model.addAttribute("user", new NewUserDTO());
-        return "createUser";
+    @GetMapping("/logout")
+    public String logout() {
+        return "login";
     }
 
     @PostMapping("/admin/create-user")
