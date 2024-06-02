@@ -36,14 +36,4 @@ public class UserController {
     public String logout() {
         return "login";
     }
-
-    @PostMapping("/admin/create-user")
-    public String createUser(@ModelAttribute NewUserDTO user, Model model) {
-        // TODO: Controlla se l'utente esiste già
-
-        userService.createUser(user);
-        model.addAttribute("user", user);
-
-        return "login";
-    }
 }
