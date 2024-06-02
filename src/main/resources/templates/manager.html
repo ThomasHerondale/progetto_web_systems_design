@@ -5,40 +5,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System manager</title>
+    <link th:href="@{/templates_style/manager_style.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="container">
     <div class="page-title">
+        <a href="">
+            <span>Home</span>
+        </a>
         <h1>Gestione Impianti</h1>
     </div>
-    <div class="Information-container">
+    <div class="information-container">
         <div class="table-container">
             <table>
                 <thead>
-                    <tr>
-                        <th>Stato</th>
-                        <th>Impianto</th>
-                        <th>Palinsesto</th>
-                        <th>Latitudine</th>
-                        <th>Longitudine</th>
-                    </tr>
+                <tr>
+                    <th>Stato</th>
+                    <th>Impianto</th>
+                    <th>Palinsesto</th>
+                    <th>Latitudine</th>
+                    <th>Longitudine</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr th:each= "facility : ${facilities}">
-                        <td>
-                            <div th:class="${facility.status == 'ACTIVE' ? 'status-active' : 'status-unactive'}"
-                                 th:text="${facility.status}"/>
-                        </td>
-                        <td th:text="'Impianto ' + ${facility.id}"/>
-                        <td th:text="'Palinsesto ' + ${facility.schedule.id}"/>
-                        <td th:text="${#numbers.formatDecimal(facility.latitude, 1, 4)}"/>
-                        <td th:text="${#numbers.formatDecimal(facility.longitude, 1, 4)}"/>
-                        <td>
-                            <a th:href="@{'/facilities/update/{id}' (id=${facility.id})}"
-                                    th:text="'Modifica'"
-                                    type="button"/>
-                        </td>
-                    </tr>
+                <tr th:each= "facility : ${facilities}">
+                    <td>
+                        <div th:class="${facility.status == 'ACTIVE' ? 'status-active' : 'status-unactive'}"
+                             th:text="${facility.status}"/>
+                    </td>
+                    <td th:text="'Impianto ' + ${facility.id}"/>
+                    <td th:text="'Palinsesto ' + ${facility.schedule.id}"/>
+                    <td th:text="${#numbers.formatDecimal(facility.latitude, 1, 4)}"/>
+                    <td th:text="${#numbers.formatDecimal(facility.longitude, 1, 4)}"/>
+                    <td>
+                        <a th:href="@{'/facilities/update/{id}' (id=${facility.id})}"
+                           th:text="'Modifica'"
+                           type="button"/>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>

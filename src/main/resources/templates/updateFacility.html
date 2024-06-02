@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Modifica Impianto</title>
+  <link th:href="@{/templates_style/update_style.css}" rel="stylesheet" type="text/css">
+  <style>
+
+  </style>
 </head>
 <body>
-  <p th:text="'Impianto ' + ${formModel.facility.id}"></p>
+<div class="header">
+  <span>Modifica Impianto</span>
+</div>
+<div class="container">
   <form action="#" th:object="${formModel}" th:action="@{/facilities/update}" method="post">
+    <p th:text="'Impianto ' + ${formModel.facility.id}"></p>
     <input type="hidden" th:field="*{facility}">
     <label>
       <select th:name="'Palinsesto ' + ${formModel.facility.schedule.id}"
@@ -20,11 +28,12 @@
     </label>
     <label>
       <input type="checkbox"
-             th:text="${formModel.facility.status == 'ACTIVE' ? 'Disattiva' : 'Attiva'}"
-             th:field="${formModel.toggleStatus}"
-             th:value="${formModel.toggleStatus}"/>
+             th:field="*{toggleStatus}"
+             th:checked="${formModel.facility.status == 'ACTIVE'}"
+             th:text="${formModel.facility.status == 'ACTIVE' ? 'Disattiva' : 'Attiva'}"/>
     </label>
-    <button type="submit" th:text="'Conferma'"/>
+    <button type="submit" th:text="'Conferma'"></button>
   </form>
+</div>
 </body>
 </html>
