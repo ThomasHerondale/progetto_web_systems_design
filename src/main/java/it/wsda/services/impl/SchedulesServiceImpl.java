@@ -25,6 +25,12 @@ public class SchedulesServiceImpl implements SchedulesService {
                 .map(ScheduleDTO::fromEntity)
                 .toList();
     }
+
+    @Override
+    public ScheduleDTO getScheduleById(String id) {
+        return ScheduleDTO.fromEntity(schedulesRepository.findScheduleById(id));
+    }
+
     @Override
     public void createSchedule(ScheduleDTO scheduleDTO) {
         Schedule schedule = new Schedule();

@@ -45,22 +45,21 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/", "/users/login","/receiveData","/reportData").permitAll()
-                        .requestMatchers("/users/admin/**").hasAuthority("admin")
+                        .requestMatchers("/receiveData","/reportData").permitAll()
+                        .requestMatchers("/", "/users/login").permitAll()
+                        .requestMatchers("/users/admin/**").hasAuthority("admin") // TODO: forse è inutile?
                         .requestMatchers("/manager/**").permitAll() // TODO: auth
+                        .requestMatchers("/facilities/create",   "/facilities/update/**").permitAll() // TODO: auth
                         .requestMatchers("/templates_style/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/users/login")
                         .loginProcessingUrl("/users/login")
                         .defaultSuccessUrl("/", true)
-                        .successHandler(new SimpleUrlAuthenticationSuccessHandler() {
-                            @Override
-                            protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-                                SavedRequest savedRequest = new HttpSessionRequestCache().getRequest(request, response);
-                                String targetUrl = savedRequest != null ? savedRequest.getRedirectUrl() : "/";
-                                response.sendRedirect(targetUrl);
-                            }
+                        .successHandler((request, response, authentication) -> {
+                            SavedRequest savedRequest = new HttpSessionRequestCache().getRequest(request, response);
+                            String targetUrl = savedRequest != null ? savedRequest.getRedirectUrl() : "/";
+                            response.sendRedirect(targetUrl);
                         })
                         .permitAll())
                 .logout(logout -> logout

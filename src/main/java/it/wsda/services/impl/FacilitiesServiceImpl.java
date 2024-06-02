@@ -23,6 +23,12 @@ public class FacilitiesServiceImpl implements FacilitiesService {
     }
 
     @Override
+    public FacilityDTO findFacilityById(int id) {
+        var facility = facilitiesRepository.findFacilitiesById(id).orElseThrow();
+        return FacilityDTO.fromEntity(facility);
+    }
+
+    @Override
     public Collection<FacilityDTO> getAllFacilities() {
         return facilitiesRepository.findAll()
                 .stream()

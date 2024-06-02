@@ -5,21 +5,24 @@
   <title>Modifica Impianto</title>
 </head>
 <body>
-  <p th:text="'Impianto ' + ${facility.id}"></p>
-  <form th:object="${facility}" th:action="@{/facilities/update}" method="post">
+  <p th:text="'Impianto ' + ${formModel.facility.id}"></p>
+  <form action="#" th:object="${formModel}" th:action="@{/facilities/update}" method="post">
+    <input type="hidden" th:field="*{facility}">
     <label>
-      <select th:name="'Palinsesto ' + ${facility.schedule.id}" th:value="${facility.schedule}">
+      <select th:name="'Palinsesto ' + ${formModel.facility.schedule.id}"
+              th:value="${formModel.facility.schedule.id}"
+              th:field="*{scheduleId}">
         <option th:each="schedule : ${schedules}"
                 th:value="${schedule.id}"
                 th:text="'Palinsesto ' + ${schedule.id}"
-                th:selected="${facility.schedule == schedule.id}"/>
+                th:selected="${formModel.facility.schedule == schedule.id}"/>
       </select>
     </label>
     <label>
       <input type="checkbox"
-             th:text="${facility.status == 'ACTIVE' ? 'Disattiva' : 'Attiva'}"
-             th:field="${facility.status}"
-             th:value="${toggleStatus}"/>
+             th:text="${formModel.facility.status == 'ACTIVE' ? 'Disattiva' : 'Attiva'}"
+             th:field="${formModel.toggleStatus}"
+             th:value="${formModel.toggleStatus}"/>
     </label>
     <button type="submit" th:text="'Conferma'"/>
   </form>

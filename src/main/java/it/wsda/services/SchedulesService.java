@@ -6,5 +6,6 @@ import java.util.Collection;
 
 public interface SchedulesService {
     Collection<ScheduleDTO> getAllSchedules();
+    ScheduleDTO getScheduleById(String id);
     void createSchedule(ScheduleDTO scheduleDTO);
 }
