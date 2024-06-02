@@ -38,5 +38,9 @@ public class SchedulesServiceImpl implements SchedulesService {
         schedule.setFilePath(scheduleDTO.getFilePath());
         schedulesRepository.save(schedule);
     }
-
+    @Override
+    public ScheduleDTO getScheduleByFacilityId(int facilityId) {
+        var schedule = schedulesRepository.findByFacilityId(facilityId);
+        return ScheduleDTO.fromEntity(schedule);
+    }
 }

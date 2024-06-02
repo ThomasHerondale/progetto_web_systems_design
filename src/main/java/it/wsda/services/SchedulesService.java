@@ -8,4 +8,6 @@ public interface SchedulesService {
     Collection<ScheduleDTO> getAllSchedules();
     ScheduleDTO getScheduleById(String id);
     void createSchedule(ScheduleDTO scheduleDTO);
+
+    ScheduleDTO getScheduleByFacilityId(int facilityId);
 }

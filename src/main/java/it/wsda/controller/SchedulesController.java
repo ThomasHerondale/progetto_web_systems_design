@@ -36,4 +36,9 @@ public class SchedulesController {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
     }
+    @GetMapping("/schedule")
+    public ScheduleDTO getScheduleByFacilityId(@RequestParam int facilityId) {
+        // Recupera il palinsesto associato all'impianto dato l'ID dell'impianto
+        return schedulesService.getScheduleByFacilityId(facilityId);
+    }
 }
