@@ -19,25 +19,25 @@
                         <span>Mappa</span>
                     </div>
                 </a>
-                <a th:href="@{manager.html}" class="card"> <!-- TODO: link alla pagina manager-->
+                <a th:href="@{/manager}" class="card"> <!-- TODO: link alla pagina manager-->
                     <img th:src="@{/templates_style/img/facility.png}" alt="Facility" style="width: 90%; padding: 4%;">
                     <div class="title-card-container">
                         <span class="card-title">Gestione Impianto</span>
                     </div>
                 </a>
-                <a th:href="" class="card"> <!-- TODO: link alla pagina report -->
+                <a th:href="@{/report}" class="card"> <!-- TODO: link alla pagina report -->
                     <img th:src="@{/templates_style/img/report.png}" alt="Report">
                     <div class="title-card-container">
                         <span class="card-title">Reportistica</span>
                     </div>
                 </a>
-                <a th:href="" class="card"> <!-- TODO: link alla pagina insert-->
+                <a th:href="@{/facilities/create}" class="card"> <!-- TODO: link alla pagina insert-->
                     <img th:src="@{/templates_style/img/insert.png}" alt="Insert">
                     <div class="title-card-container">
                         <span class="card-title">Aggiungi Impianto</span>
                     </div>
                 </a>
-                <a th:href="@{login.html}" class="card"> <!-- TODO: link alla pagina login-->
+                <a th:href="@{/logout}" class="card"> <!-- TODO: link alla pagina login-->
                     <img th:src="@{/templates_style/img/logout.png}" alt="logout">
                     <div class="title-card-container">
                         <span class="card-title">Logout</span>
