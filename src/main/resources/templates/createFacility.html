@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggiungi impianto</title>
+    <link rel="stylesheet" th:href="@{/templates_style/insert_style.css}" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div class="card-form">
+        <h2>Inserisci Impianto</h2>
+        <form th:action="@{/facilities/create}" th:object="${facility}" method="post">
+            <div class="input-container">
+                <label>Inserisci una breve descrizione dell'impianto da inserire</label>
+                <textarea placeholder="description..." th:field="*{description}" rows="4" required></textarea>
+            </div>
+            <div class="input-number-container">
+                <div class="input-container">
+                    <label>Inserisci la latitudine dell'impianto</label>
+                    <input type="number" placeholder="ex. 62.345" th:field="*{latitude}" step="any" required>
+                </div>
+                <div class="input-container">
+                    <label>Inserisci la longitudine dell'impianto</label>
+                    <input type="number" placeholder="ex. 34.6712" th:field="*{longitude}" step="any" required>
+                </div>
+            </div>
+            <div class="input-container">
+                <label>Inserisci il palinsesto</label>
+                <select th:field="*{schedule.id}" required>
+                    <option th:each="schedule : ${schedules}" th:value="${schedule.id}" th:text="${schedule.filePath}"></option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label>Stato</label>
+                <select th:field="*{status}" required>
+                    <option value="ACTIVE" th:selected="${facility.status == 'ACTIVE'}">Attiva</option>
+                    <option value="INACTIVE" th:selected="${facility.status == 'INACTIVE'}">Inattiva</option>
+                </select>
+            </div>
+            <button type="submit">Invia</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
