@@ -1,5 +1,7 @@
 package it.wsda.services;
 
+import java.util.Map;
+
 public interface SignalsService {
-    int getAdvertisementTotalDuration(String id);
+    Map<String, Integer> getAdvScreenTimes();
 }
