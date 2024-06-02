@@ -3,45 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Report</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+
 </head>
 <body>
 <div class="report-container">
     <h1>Report dei Tempi di Schermo degli Annunci</h1>
-    <form th:action="@{/signals/report}" method="post">
-        <label>
-            Data Inizio:
-            <input type="date" name="startDate" required>
-        </label>
-        <label>
-            Data Fine:
-            <input type="date" name="endDate" required>
-        </label>
-        <button type="submit">Genera Report</button>
-    </form>
     <div th:if="${advScreenTimes != null && !advScreenTimes.isEmpty()}">
         <h2>Risultati:</h2>
         <table>
             <thead>
             <tr>
                 <th>Annuncio</th>
-                <th>Durata Totale</th>
-                <th>Impianto</th>
-                <th>Timestamp</th>
+                <th>Durata Totale (in secondi)</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="screenTime : ${advScreenTimes}">
-                <td th:text="${screenTime.advId}">Placeholder</td>
-                <td th:text="${screenTime.duration}">Placeholder</td>
-                <td th:text="${screenTime.facility}">Placeholder</td>
-                <td th:text="${screenTime.timestamp}">Placeholder</td>
+            <tr th:each="entry : ${advScreenTimes}">
+                <td th:text="${entry.key}">Placeholder</td>
+                <td th:text="${entry.value}">Placeholder</td>
             </tr>
             </tbody>
         </table>
     </div>
     <div th:if="${advScreenTimes == null || advScreenTimes.isEmpty()}">
-        <p>Nessun dato disponibile per il periodo selezionato.</p>
+        <p>Nessun dato disponibile.</p>
     </div>
 </div>
 </body>
