@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Meteo e Ora</title>
+	<link rel="stylesheet" th:href="@{/styles/styles.css}">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script th:src="@{/weather_api.js}"></script>
+	<script th:src="@{/ad_manager.js}"></script>
+	<script>
+		function setup() {
+			loadWeatherSetup();
+			loadDateTimeSetup();
+			loadAdvertisementSetup();
+		}
+
+		function loadWeatherSetup() {
+			fetch("https://api.open-meteo.com/v1/forecast?" +
+					"latitude=38.132&" +
+					"longitude=13.3356&" +
+					"hourly=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&" +
+					"forecast_days=1")
+					.then(async r => {
+						let json = JSON.parse(await r.text());
+						console.debug("Result of api query:");
+						console.debug(json);
+						let date = new Date();
+						let data = parseWeatherData(json, date.getHours());
+						weatherSetup(data);
+					})
+					.catch(reason => console.error(reason))
+					.finally(() => setTimeout(loadWeatherSetup, 1800000));
+		}
+
+		function weatherSetup(weatherData) {
+			let leftIcon = document.getElementById('left-icon');
+			let rightIcon = document.getElementById('right-icon');
+			leftIcon.src = weatherData.imgPath;
+			rightIcon.src = weatherData.imgPath;
+
+			document.getElementById('temperature').textContent = `${weatherData.temperature} °C`;
+			document.getElementById('humidity').textContent = `${weatherData.humidity} %`;
+			document.getElementById('wind').textContent = `${weatherData.windSpeed} km/h`;
+			document.getElementById('rain_prob').textContent = `${weatherData.precipitationProbability} %`;
+		}
+
+		function loadDateTimeSetup() {
+			let date = new Date();
+			let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+			document.getElementById("date").innerText = date.toLocaleDateString('it-IT', options);
+			document.getElementById("time").innerText = date.toLocaleTimeString('it-IT');
+
+			setTimeout("loadDateTimeSetup()", 1000);
+		}
+
+		let idx = -1;
+		let schedule = null;
+		let facilityId = /*[[${facilityId}]]*/ 'null';
+
+		function loadAdvertisementSetup() {
+
+		}
+
+		function readSchedule(filePath) {
+			let req = new XMLHttpRequest();
+			req.open('GET', filePath, true);
+			req.onload = function () {
+				schedule = parseSchedule(this.responseXML);
+				advertisementSetup();
+				sendSignal();
+			};
+			req.send();
+		}
+
+		function parseSchedule(xml) {
+			let wall = xml.childNodes[1].getElementsByTagName('advertisement');
+			let ads = [];
+			for (let i = 0; i < wall.length; i++) {
+				let ad = wall[i];
+				let id = ad.getAttribute('id');
+				let title = ad.getElementsByTagName('title')[0].firstChild.nodeValue;
+				let duration = ad.getElementsByTagName('duration')[0].firstChild.nodeValue;
+				let description = ad.getElementsByTagName('description')[0].firstChild.nodeValue;
+				let url = ad.getElementsByTagName('url')[0].firstChild.nodeValue;
+				ads[i] = new Advertisement(
+						id,
+						title,
+						duration,
+						description,
+						url
+				);
+			}
+			console.log(ads);
+			return ads;
+		}
+
+		function advertisementSetup() {
+			if (idx === 9)
+				idx = 0;
+			else
+				idx++;
+			const ad = schedule[idx];
+			document.getElementById('content').src = ad.url;
+			setTimeout("advertisementSetup()", ad.duration * 1000);
+		}
+
+		let lastAdv = "";
+		let lastSession = "";
+
+		function sendSignal() {
+			console.log("Sending request...");
+			let date = new Date();
+			generateSessionId(schedule[idx].id);
+			lastAdv = schedule[idx].id;
+			$.post('http://127.0.0.1:8080/receiveData',
+					{
+						facility_id: facilityId,
+						schedule_id: schedule_id,
+						session_id: lastSession,
+						adv_id: schedule[idx].id,
+						duration: schedule[idx].duration,
+						timestamp: date.toISOString()
+					},
+					function (data, status) {
+						console.log(`Request ended with status ${status}`);
+					}
+			);
+			setTimeout("sendSignal()", 5000);
+		}
+
+		function generateSessionId(advId) {
+			if (advId === lastAdv)
+				return;
+
+			let chars = "ABCDEFGHIJKLMNOPQRSTUVZ";
+			let sessionId = "";
+			for (let i = 0; i < 4; i++) {
+				let idx = Math.floor(Math.random() * (chars.length - 1));
+				sessionId += chars[idx];
+			}
+			lastSession = sessionId;
+		}
+	</script>
+</head>
+<body onload="setup()">
+
+<iframe id="content">
+	<!-- Qui verrà inserito il contenuto dinamico -->
+</iframe>
+
+<div id="bottom-bar">
+	<img src="images/weather/ic_sunny.svg" alt="Icona meteo sinistra" id="left-icon">
+	<span id="date"></span> |
+	<span id="temperature"></span> |
+	<span id="humidity"></span> |
+	<span id="wind"></span> |
+	<span id="rain_prob"></span>|
+	<span id="time"></span>
+	<img src="images/weather/ic_sunny.svg" alt="Icona meteo destra" id="right-icon">
+</div>
+
+<script th:src="@{/script.js}"></script>
+</body>
+</html>
