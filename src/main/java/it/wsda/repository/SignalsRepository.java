@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -21,13 +22,9 @@ public interface SignalsRepository extends JpaRepository<Signal, String> {
     List<Signal> findAllByScheduleId(String scheduleId);
 
     @Query("""
-        SELECT SUM(session_duration.duration) AS total_duration
-        FROM (
-                 SELECT s.duration AS duration
-                 FROM Signal s
-                 WHERE s.advId = :adv_id
-                 GROUP BY s.sessionId
-             ) AS session_duration
+    SELECT s
+    FROM Signal s
+    WHERE s.timestamp BETWEEN :start AND :end
     """)
-    int findTotalDurationByAdv_id(String adv_id);
+    List<Signal> findAllByTimeRange(Date start, Date end);
 }

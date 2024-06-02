@@ -39,6 +39,7 @@ public class FacilitiesController {
     @GetMapping("/create")
     public String createFacility(Model model) {
         model.addAttribute("facility", new FacilityDTO());
+        model.addAttribute("schedules", schedulesService.getAllSchedules());
         return "createFacility";
     }
 
@@ -46,6 +47,9 @@ public class FacilitiesController {
     public String createFacility(@ModelAttribute FacilityDTO facility, Model model) {
         try {
             facilitiesService.createFacility(facility);
+            var facilities = facilitiesService.getAllFacilities();
+            model.addAttribute("facilities", facilities);
+
             return "manager";
         } catch (Exception e) {
             return "errors/generic";

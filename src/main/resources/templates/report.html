@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Report</title>
-
 </head>
 <body>
 <div class="report-container">
     <h1>Report dei Tempi di Schermo degli Annunci</h1>
+    <form th:action="@{/report}" method="get">
+        <label>
+            Data Inizio:
+            <input type="date" name="startDate" required>
+        </label>
+        <label>
+            Data Fine:
+            <input type="date" name="endDate" required>
+        </label>
+        <button type="submit">Genera Report</button>
+    </form>
     <div th:if="${advScreenTimes != null && !advScreenTimes.isEmpty()}">
         <h2>Risultati:</h2>
         <table>
