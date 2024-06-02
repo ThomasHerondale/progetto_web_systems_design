@@ -41,11 +41,12 @@ public class WebSecurityConfiguration {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/receiveData","/reportData").permitAll()
                         .requestMatchers("/", "/users/login").permitAll()
-                        .requestMatchers("/users/admin/**").hasAuthority("admin") // TODO: forse è inutile?
+                        .requestMatchers("/admin/**").permitAll() // TODO: auth
                         .requestMatchers("/manager/**").permitAll() // TODO: auth
                         .requestMatchers("/facilities/create",   "/facilities/update/**").permitAll() // TODO: auth
                         .requestMatchers("/report/**").permitAll() // TODO: auth
                         .requestMatchers("/templates_style/**").permitAll()
+                        .requestMatchers("/map/**").permitAll() // TODO: auth
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/users/login")
