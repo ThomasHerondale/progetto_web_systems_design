@@ -194,13 +194,14 @@
 
 		let idx = -1;
 		let schedule = null;
+		let schedule_id = null
 		let facilityId = /*[[${facilityId}]]*/ 'null';
 
 		function loadAdvertisementSetup() {
 			$.get(`http://localhost:8080/schedules/schedule?facilityId=${facilityId}`,
 			{},
 			function (data) {
-				console.log(data)
+				schedule_id = data["id"]
 				readSchedule(data["filePath"])
 			}
 			)
@@ -208,10 +209,11 @@
 
 		function readSchedule(filePath) {
 			let req = new XMLHttpRequest();
-			req.open('GET', `http://127.0.0.1:8080/resources/static/${filePath}`, true);
+			req.open('GET', `http://127.0.0.1:8080/schedules/file?file_path=${filePath}`, true);
 			req.onload = function () {
-				console.log(this.response)
-				schedule = parseSchedule(this.responseXML);
+				let parser = new DOMParser()
+				const xml = parser.parseFromString(this.response, "text/xml");
+				schedule = parseSchedule(xml);
 				advertisementSetup();
 				sendSignal();
 			};

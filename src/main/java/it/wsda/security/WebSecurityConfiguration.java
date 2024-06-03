@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -37,7 +38,9 @@ public class WebSecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
+        http
+                .csrf(AbstractHttpConfigurer::disable)
+                .headers(conf -> conf.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/receiveData","/reportData").permitAll()
                         .requestMatchers("/", "/users/login").permitAll()
@@ -50,7 +53,8 @@ public class WebSecurityConfiguration {
                         .requestMatchers("/images/**").permitAll()
                         .requestMatchers("/map/**").permitAll() // TODO: auth
                         .requestMatchers("/wsda/**").permitAll()
-                        .requestMatchers("/schedules/schedule/**").permitAll()
+                        .requestMatchers("/schedules/**").permitAll()
+                        .requestMatchers("/pages/**").permitAll()
                         .requestMatchers("/xml_files/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
