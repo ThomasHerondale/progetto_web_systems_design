@@ -44,28 +44,24 @@ public class WebSecurityConfiguration {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/receiveData","/reportData").permitAll()
                         .requestMatchers("/", "/users/login").permitAll()
-                        .requestMatchers("/admin/**").permitAll() // TODO: auth
-                        .requestMatchers("/manager/**").permitAll() // TODO: auth
-                        .requestMatchers("/facilities/create",   "/facilities/update/**").permitAll() // TODO: auth
-                        .requestMatchers("/report/**").permitAll() // TODO: auth
+                        .requestMatchers("/admin/**").hasAuthority("admin")// TODO: auth
+                        .requestMatchers("/manager/**").hasAuthority("admin") // TODO: auth
+                        .requestMatchers("/facilities/create",   "/facilities/update/**").hasAuthority("admin") // TODO: auth
+                        .requestMatchers("/report/**").hasAuthority("admin") // TODO: auth
                         .requestMatchers("/templates_style/**").permitAll()
                         .requestMatchers("/styles/**").permitAll()
                         .requestMatchers("/images/**").permitAll()
-                        .requestMatchers("/map/**").permitAll() // TODO: auth
+                        .requestMatchers("/map/**").hasAuthority("admin") // TODO: auth
                         .requestMatchers("/wsda/**").permitAll()
                         .requestMatchers("/schedules/**").permitAll()
                         .requestMatchers("/pages/**").permitAll()
                         .requestMatchers("/xml_files/**").permitAll()
+                        .requestMatchers("/users/create").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/users/login")
                         .loginProcessingUrl("/users/login")
-                        .defaultSuccessUrl("/", true)
-                        .successHandler((request, response, authentication) -> {
-                            SavedRequest savedRequest = new HttpSessionRequestCache().getRequest(request, response);
-                            String targetUrl = savedRequest != null ? savedRequest.getRedirectUrl() : "/";
-                            response.sendRedirect(targetUrl);
-                        })
+                        .defaultSuccessUrl("/admin", true)
                         .permitAll())
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/users/logout"))
