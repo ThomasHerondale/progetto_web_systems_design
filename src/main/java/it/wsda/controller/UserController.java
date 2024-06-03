@@ -29,11 +29,30 @@ public class UserController {
     @PostMapping("/login")
     public String login(@ModelAttribute NewUserDTO user, Model model) {
         model.addAttribute("user", user);
-        return "report";
+        return "index_admin";
     }
 
     @GetMapping("/logout")
     public String logout() {
         return "login";
+    }
+
+    @GetMapping("/create")
+    public String showCreateUserForm(Model model) {
+        model.addAttribute("user", new NewUserDTO());
+        return "createUser";
+    }
+
+    @PostMapping("/create")
+    public String createUser(NewUserDTO userDTO, Model model) {
+        try {
+            userService.createUser(userDTO);
+            model.addAttribute("message", "User created successfully!");
+            model.addAttribute("user", new NewUserDTO());
+        } catch (Exception e) {
+            model.addAttribute("message", "Error creating user: " + e.getMessage());
+            model.addAttribute("user", userDTO);
+        }
+        return "createUser";
     }
 }
