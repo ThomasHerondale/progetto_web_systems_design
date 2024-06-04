@@ -44,14 +44,14 @@ public class WebSecurityConfiguration {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/receiveData","/reportData").permitAll()
                         .requestMatchers("/", "/users/login").permitAll()
-                        .requestMatchers("/admin/**").hasAuthority("admin")// TODO: auth
-                        .requestMatchers("/manager/**").hasAuthority("admin") // TODO: auth
+                        .requestMatchers("/admin/**").hasAuthority("admin")
+                        .requestMatchers("/manager/**").hasAuthority("admin")
                         .requestMatchers("/facilities/create",   "/facilities/update/**").hasAuthority("admin") // TODO: auth
-                        .requestMatchers("/report/**").hasAuthority("admin") // TODO: auth
+                        .requestMatchers("/report/**").hasAuthority("admin")
                         .requestMatchers("/templates_style/**").permitAll()
                         .requestMatchers("/styles/**").permitAll()
                         .requestMatchers("/images/**").permitAll()
-                        .requestMatchers("/map/**").hasAuthority("admin") // TODO: auth
+                        .requestMatchers("/map/**").hasAuthority("admin")
                         .requestMatchers("/wsda/**").permitAll()
                         .requestMatchers("/schedules/**").permitAll()
                         .requestMatchers("/pages/**").permitAll()
